@@ -100,13 +100,13 @@
 <meta property="og:site_name" content="前端脚印">
 <meta property="og:description" content="之前面试的时候被问到移动端适配用什么单位，答不出来，遂搜集了一些资料总结成这篇文章。水平有限，虽然已经尽可能地保证不出错，但难免有这样或那样的漏洞，如果你发现任何问题，请给我留言。感恩。 什么是rem？一般来说我们听到更多的是em，而rem则是root em的意思。顾名思义，rem是指相对于根元素字体大小的单位，而这个根元素，一般指的就是html。例如，若html的font size为16px,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/iamges/btn-example.JPG">
-<meta property="og:image" content="http://yoursite.com/iamges/btn-example-large.JPG">
-<meta property="og:updated_time" content="2017-08-01T16:06:04.063Z">
+<meta property="og:image" content="http://yoursite.com/images/btn-example.JPG">
+<meta property="og:image" content="http://yoursite.com/images/btn-example-large.JPG">
+<meta property="og:updated_time" content="2017-08-01T17:51:09.505Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用rem进行移动端适配">
 <meta name="twitter:description" content="之前面试的时候被问到移动端适配用什么单位，答不出来，遂搜集了一些资料总结成这篇文章。水平有限，虽然已经尽可能地保证不出错，但难免有这样或那样的漏洞，如果你发现任何问题，请给我留言。感恩。 什么是rem？一般来说我们听到更多的是em，而rem则是root em的意思。顾名思义，rem是指相对于根元素字体大小的单位，而这个根元素，一般指的就是html。例如，若html的font size为16px,">
-<meta name="twitter:image" content="http://yoursite.com/iamges/btn-example.JPG">
+<meta name="twitter:image" content="http://yoursite.com/images/btn-example.JPG">
 
 
 
@@ -373,9 +373,9 @@
 <h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>说了那么多我们来看看究竟要怎么使用吧。先看一个例子。</p>
 <p><a href="https://codepen.io/weibinzhu/pen/BdKexp" target="_blank" rel="external">Demo</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;btn&quot;&gt;button&lt;/div&gt;</div></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">html&#123;</div><div class="line">  font-size:40px;</div><div class="line">&#125;</div><div class="line">.btn&#123;</div><div class="line">  width: 2rem;</div><div class="line">  height: 0.5rem;</div><div class="line">  font-size: 0.5rem;</div><div class="line">  line-height: 0.5rem;</div><div class="line">  text-align:center;</div><div class="line">  background-color:red;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><img src="/iamges/btn-example.JPG" alt="image"></p>
+<p><img src="/images/btn-example.JPG" alt="image"></p>
 <p>例子中div的单位都是rem，留意宽高，可以看到宽高分别是80px和10px，而这正分别等于 2*40px和0.5*40px。这表明宽高是通过根元素html的font-size计算出来的，此时1rem=40px。</p>
-<p>此时我们把html的font-size修改成原来的两倍即80px，其他不作改动，结果如下图所示。<br><img src="/iamges/btn-example-large.JPG" alt="image"><br>显然div的宽高也变成了原来的两倍，此时1rem=80px。这也印证了之前所说的只需通过修改根元素的font-size值就可以等比例缩放。</p>
+<p>此时我们把html的font-size修改成原来的两倍即80px，其他不作改动，结果如下图所示。<br><img src="/images/btn-example-large.JPG" alt="image"><br>显然div的宽高也变成了原来的两倍，此时1rem=80px。这也印证了之前所说的只需通过修改根元素的font-size值就可以等比例缩放。</p>
 <p>相信到这里大家也发现，每次设置rem都要换算一遍，非常麻烦。为了方便我们可以：</p>
 <ol>
 <li>将根元素的font-size设置成100px，这样只需要将px的数字的小数点往前挪两位再把单位换成rem就可以了，例如160px换成rem就是1.6rem。</li>
