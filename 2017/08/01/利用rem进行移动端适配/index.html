@@ -96,17 +96,17 @@
 <meta name="description" content="之前面试的时候被问到移动端适配用什么单位，答不出来，遂搜集了一些资料总结成这篇文章。水平有限，虽然已经尽可能地保证不出错，但难免有这样或那样的漏洞，如果你发现任何问题，请给我留言。感恩。 什么是rem？一般来说我们听到更多的是em，而rem则是root em的意思。顾名思义，rem是指相对于根元素字体大小的单位，而这个根元素，一般指的就是html。例如，若html的font size为16px,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="利用rem进行移动端适配">
-<meta property="og:url" content="http://yoursite.com/2017/08/01/利用rem进行移动端适配/index.html">
+<meta property="og:url" content="https://weibinzhu.github.io/2017/08/01/利用rem进行移动端适配/index.html">
 <meta property="og:site_name" content="前端脚印">
 <meta property="og:description" content="之前面试的时候被问到移动端适配用什么单位，答不出来，遂搜集了一些资料总结成这篇文章。水平有限，虽然已经尽可能地保证不出错，但难免有这样或那样的漏洞，如果你发现任何问题，请给我留言。感恩。 什么是rem？一般来说我们听到更多的是em，而rem则是root em的意思。顾名思义，rem是指相对于根元素字体大小的单位，而这个根元素，一般指的就是html。例如，若html的font size为16px,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/btn-example.JPG">
-<meta property="og:image" content="http://yoursite.com/images/btn-example-large.JPG">
-<meta property="og:updated_time" content="2017-08-01T17:53:54.260Z">
+<meta property="og:image" content="https://weibinzhu.github.io/images/btn-example.JPG">
+<meta property="og:image" content="https://weibinzhu.github.io/images/btn-example-large.JPG">
+<meta property="og:updated_time" content="2017-08-03T06:37:33.346Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用rem进行移动端适配">
 <meta name="twitter:description" content="之前面试的时候被问到移动端适配用什么单位，答不出来，遂搜集了一些资料总结成这篇文章。水平有限，虽然已经尽可能地保证不出错，但难免有这样或那样的漏洞，如果你发现任何问题，请给我留言。感恩。 什么是rem？一般来说我们听到更多的是em，而rem则是root em的意思。顾名思义，rem是指相对于根元素字体大小的单位，而这个根元素，一般指的就是html。例如，若html的font size为16px,">
-<meta name="twitter:image" content="http://yoursite.com/images/btn-example.JPG">
+<meta name="twitter:image" content="https://weibinzhu.github.io/images/btn-example.JPG">
 
 
 
@@ -134,7 +134,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/08/01/利用rem进行移动端适配/"/>
+  <link rel="canonical" href="https://weibinzhu.github.io/2017/08/01/利用rem进行移动端适配/"/>
 
 
 
@@ -283,7 +283,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/01/利用rem进行移动端适配/">
+    <link itemprop="mainEntityOfPage" href="https://weibinzhu.github.io/2017/08/01/利用rem进行移动端适配/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Fatbin37">
@@ -371,8 +371,8 @@
 <p>我们发现这些方法要么不能在不同设备上完美显示，要么就是过于复杂，而rem却能很好的兼顾简单和兼容性。</p>
 <p>之前提到rem是相对于根元素字体大小的单位，如果根元素的font size是16px，那么1rem就是16px，如果根元素是37.5px，那么1rem就是37.5px。可见，如果页面元素都用rem来设置大小，那么我们只需要修改根元素的font size就能等比例地缩放整个页面。也就是说只要根据不同屏幕尺寸设置根元素font size，我们就能等比例适配所有屏幕，是不是很优雅？</p>
 <h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>说了那么多我们来看看究竟要怎么使用吧。先看一个例子。</p>
-<p><a href="https://codepen.io/weibinzhu/pen/BdKexp" target="_blank" rel="external">Demo</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;btn&quot;&gt;button&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">html&#123;</div><div class="line">  font-size:40px;</div><div class="line">&#125;</div><div class="line">.btn&#123;</div><div class="line">  width: 2rem;</div><div class="line">  height: 0.5rem;</div><div class="line">  font-size: 0.5rem;</div><div class="line">  line-height: 0.5rem;</div><div class="line">  text-align:center;</div><div class="line">  background-color:red;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="https://codepen.io/weibinzhu/pen/BdKexp" target="_blank" rel="external">Demo</a><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn"</span>&gt;</span>button<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">html</span>&#123;</div><div class="line">  <span class="attribute">font-size</span>:<span class="number">40px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.btn</span>&#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">2rem</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">0.5rem</span>;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">0.5rem</span>;</div><div class="line">  <span class="attribute">line-height</span>: <span class="number">0.5rem</span>;</div><div class="line">  <span class="attribute">text-align</span>:center;</div><div class="line">  <span class="attribute">background-color</span>:red;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><img src="/images/btn-example.JPG" alt="image"></p>
 <p>例子中div的单位都是rem，留意宽高，可以看到宽高分别是80px和10px，而这正分别等于 2*40px和0.5*40px。这表明宽高是通过根元素html的font-size计算出来的，此时1rem=40px。</p>
 <p>此时我们把html的font-size修改成原来的两倍即80px，其他不作改动，结果如下图所示。<br><img src="/images/btn-example-large.JPG" alt="image"><br>显然div的宽高也变成了原来的两倍，此时1rem=80px。这也印证了之前所说的只需通过修改根元素的font-size值就可以等比例缩放。</p>
@@ -385,8 +385,8 @@
 <p><strong>这篇文章的主题是移动端适配，现在就具体讲讲在实际运用中如何用rem适配不同大小的屏幕</strong></p>
 <p>一般来说我们拿到的设计稿都是以iphone6的屏幕为基准设计的，也就是说宽度为375px，假设我们把根元素的font-size设置为100px。如果我们要适配的屏幕宽度为320px（即iphone5的屏幕宽度），那么此时根元素font-size应该设置为：100*（320/375），即85.3px。通过这样设置我们的页面便能完美等比例适配320px的屏幕。</p>
 <p><strong>为了计算方便，也为了避免根元素的font-size太大</strong>我们一般把根元素font-size设置为屏幕宽度的1/10（即375px的屏幕就设置为37.5px，320px的屏幕就设置为32px）。这样我们无需经过计算就能直接根据需要适配的屏幕宽度来得出font-size的大小，同时也能避免根元素font-size太大。</p>
-<p><strong>现在问题来了</strong>，<del>学挖掘机哪家强</del> 究竟怎么动态修改font-size呢？有一个简单粗暴地方法，既然主流的屏幕分辨率也就那几个，我们大可以通过media query媒体查询，把最常见的几种情况写下来。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">html &#123;</div><div class="line">    font-size : 37.5px;</div><div class="line">&#125;</div><div class="line">@media only screen and (min-width: 320px)&#123;</div><div class="line">    html &#123;</div><div class="line">        font-size: 32px !important;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">@media only screen and (min-width: 414px)&#123;</div><div class="line">    html &#123;</div><div class="line">        font-size: 41.4px !important;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这样基本能覆盖大部分设备了，如果说一定要适配所有设备，我们还可以通过JS动态计算font-size。<a href="https://m.taobao.com/#index" target="_blank" rel="external">淘宝</a>的首页就是用这个方法，审查元素之后可以看到不断改变屏幕大小，html的font-size都能实时变化。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.getElementsByTagName(&apos;html&apos;)[0].style.fontSize = window.innerWidth / 10 + &apos;px&apos;;</div></pre></td></tr></table></figure></p>
+<p><strong>现在问题来了</strong>，<del>学挖掘机哪家强</del> 究竟怎么动态修改font-size呢？有一个简单粗暴地方法，既然主流的屏幕分辨率也就那几个，我们大可以通过media query媒体查询，把最常见的几种情况写下来。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">html</span> &#123;</div><div class="line">    <span class="attribute">font-size </span>: <span class="number">37.5px</span>;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">media</span> only screen and (min-width: <span class="number">320px</span>)&#123;</div><div class="line">    <span class="selector-tag">html</span> &#123;</div><div class="line">        <span class="attribute">font-size</span>: <span class="number">32px</span> <span class="meta">!important</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">media</span> only screen and (min-width: <span class="number">414px</span>)&#123;</div><div class="line">    <span class="selector-tag">html</span> &#123;</div><div class="line">        <span class="attribute">font-size</span>: <span class="number">41.4px</span> <span class="meta">!important</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这样基本能覆盖大部分设备了，如果说一定要适配所有设备，我们还可以通过JS动态计算font-size。<a href="https://m.taobao.com/#index" target="_blank" rel="external">淘宝</a>的首页就是用这个方法，审查元素之后可以看到不断改变屏幕大小，html的font-size都能实时变化。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.getElementsByTagName(<span class="string">'html'</span>)[<span class="number">0</span>].style.fontSize = <span class="built_in">window</span>.innerWidth / <span class="number">10</span> + <span class="string">'px'</span>;</div></pre></td></tr></table></figure></p>
 <p>我们把上面的代码绑定到DOMContentLoaded时间中，这样在进入页面的时候就能马上计算出font-size。</p>
 <p>参考资料：</p>
 <p><a href="http://www.alloyteam.com/2016/03/mobile-web-adaptation-tool-rem/" target="_blank" rel="external">http://www.alloyteam.com/2016/03/mobile-web-adaptation-tool-rem/</a>  </p>
