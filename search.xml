@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[几种方法实现自适应的有文字分割线]]></title>
     <url>%2F2018%2F01%2F11%2F%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95%E5%AE%9E%E7%8E%B0%E8%87%AA%E9%80%82%E5%BA%94%E7%9A%84%E6%9C%89%E6%96%87%E5%AD%97%E5%88%86%E5%89%B2%E7%BA%BF%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[在写页面的时候我们经常需要写一些带文字的分割线，类似这样：我们需要横线垂直居中，文字水平居中，并且横线的长度能根据文字长度自适应。为此我参考了一些插件的做法，加上自己的一些思考，总结出以下三种写法： 使用table-cell以及北京图片（vux以及Cola-UI的写法）]]></content>
   </entry>
   <entry>
     <title><![CDATA[30分钟入门正则表达式]]></title>
