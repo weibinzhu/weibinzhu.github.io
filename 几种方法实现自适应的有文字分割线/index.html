@@ -10,7 +10,7 @@
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
+<meta name="baidu-site-verification" content="s8Pe1TBqyy" />
 
 
 
@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CSS," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -93,21 +93,19 @@
 
 
 
-<meta name="description" content="之前面试的时候被问到移动端适配用什么单位，答不出来，遂搜集了一些资料总结成这篇文章。水平有限，虽然已经尽可能地保证不出错，但难免有这样或那样的漏洞，如果你发现任何问题，请给我留言。感恩。 什么是rem？一般来说我们听到更多的是em，而rem则是root em的意思。顾名思义，rem是指相对于根元素字体大小的单位，而这个根元素，一般指的就是html。例如，若html的font size为16px,">
-<meta name="keywords" content="CSS">
+<meta name="description" content="在写页面的时候我们经常需要写一些带文字的分割线。我们需要横线垂直居中，文字水平居中，并且横线的长度能根据文字长度自适应。类似这样：为此我参考了一些插件的做法，加上自己的一些思考，总结出以下三种写法： 使用table-cell以及背景图片（vux以及Cola-UI的写法）这个方法主要应用了table-cell的自适应特性，再配合使用background-position将北京图片居中。为了减少htt">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用rem进行移动端适配">
-<meta property="og:url" content="https://weibinzhu.github.io/2017/08/01/利用rem进行移动端适配/index.html">
+<meta property="og:title" content="几种方法实现自适应的有文字分割线">
+<meta property="og:url" content="https://weibinzhu.github.io/几种方法实现自适应的有文字分割线/index.html">
 <meta property="og:site_name" content="前端脚印">
-<meta property="og:description" content="之前面试的时候被问到移动端适配用什么单位，答不出来，遂搜集了一些资料总结成这篇文章。水平有限，虽然已经尽可能地保证不出错，但难免有这样或那样的漏洞，如果你发现任何问题，请给我留言。感恩。 什么是rem？一般来说我们听到更多的是em，而rem则是root em的意思。顾名思义，rem是指相对于根元素字体大小的单位，而这个根元素，一般指的就是html。例如，若html的font size为16px,">
+<meta property="og:description" content="在写页面的时候我们经常需要写一些带文字的分割线。我们需要横线垂直居中，文字水平居中，并且横线的长度能根据文字长度自适应。类似这样：为此我参考了一些插件的做法，加上自己的一些思考，总结出以下三种写法： 使用table-cell以及背景图片（vux以及Cola-UI的写法）这个方法主要应用了table-cell的自适应特性，再配合使用background-position将北京图片居中。为了减少htt">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://weibinzhu.github.io/images/btn-example.JPG">
-<meta property="og:image" content="https://weibinzhu.github.io/images/btn-example-large.JPG">
-<meta property="og:updated_time" content="2017-08-03T14:46:33.594Z">
+<meta property="og:image" content="https://weibinzhu.github.io/images/dividerSample.JPG">
+<meta property="og:updated_time" content="2018-01-11T08:15:55.312Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用rem进行移动端适配">
-<meta name="twitter:description" content="之前面试的时候被问到移动端适配用什么单位，答不出来，遂搜集了一些资料总结成这篇文章。水平有限，虽然已经尽可能地保证不出错，但难免有这样或那样的漏洞，如果你发现任何问题，请给我留言。感恩。 什么是rem？一般来说我们听到更多的是em，而rem则是root em的意思。顾名思义，rem是指相对于根元素字体大小的单位，而这个根元素，一般指的就是html。例如，若html的font size为16px,">
-<meta name="twitter:image" content="https://weibinzhu.github.io/images/btn-example.JPG">
+<meta name="twitter:title" content="几种方法实现自适应的有文字分割线">
+<meta name="twitter:description" content="在写页面的时候我们经常需要写一些带文字的分割线。我们需要横线垂直居中，文字水平居中，并且横线的长度能根据文字长度自适应。类似这样：为此我参考了一些插件的做法，加上自己的一些思考，总结出以下三种写法： 使用table-cell以及背景图片（vux以及Cola-UI的写法）这个方法主要应用了table-cell的自适应特性，再配合使用background-position将北京图片居中。为了减少htt">
+<meta name="twitter:image" content="https://weibinzhu.github.io/images/dividerSample.JPG">
 
 
 
@@ -135,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="https://weibinzhu.github.io/2017/08/01/利用rem进行移动端适配/"/>
+  <link rel="canonical" href="https://weibinzhu.github.io/几种方法实现自适应的有文字分割线/"/>
 
 
 
 
 
-  <title>利用rem进行移动端适配 | 前端脚印</title>
+  <title>几种方法实现自适应的有文字分割线 | 前端脚印</title>
   
 
 
@@ -284,7 +282,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://weibinzhu.github.io/2017/08/01/利用rem进行移动端适配/">
+    <link itemprop="mainEntityOfPage" href="https://weibinzhu.github.io/几种方法实现自适应的有文字分割线/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Fatbin37">
@@ -301,7 +299,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">利用rem进行移动端适配</h1>
+          <h1 class="post-title" itemprop="name headline">几种方法实现自适应的有文字分割线</h1>
         
 
         <div class="post-meta">
@@ -313,8 +311,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-01T23:04:39+08:00">
-                2017-08-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-11T15:14:35+08:00">
+                2018-01-11
               </time>
             
 
@@ -331,7 +329,7 @@
 
           
           
-             <span id="/2017/08/01/利用rem进行移动端适配/" class="leancloud_visitors" data-flag-title="利用rem进行移动端适配">
+             <span id="/几种方法实现自适应的有文字分割线/" class="leancloud_visitors" data-flag-title="几种方法实现自适应的有文字分割线">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -359,40 +357,19 @@
       
 
       
-        <p>之前面试的时候被问到移动端适配用什么单位，答不出来，遂搜集了一些资料总结成这篇文章。水平有限，虽然已经尽可能地保证不出错，但难免有这样或那样的漏洞，如果你发现任何问题，请给我留言。感恩。</p>
-<h3 id="什么是rem？"><a href="#什么是rem？" class="headerlink" title="什么是rem？"></a>什么是rem？</h3><p>一般来说我们听到更多的是em，而rem则是root em的意思。顾名思义，rem是指相对于根元素字体大小的单位，而这个根元素，一般指的就是html。例如，若html的font size为16px, 则1rem=16px。</p>
-<h3 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h3><p>目前PC端的Chrome（4+），Firefox（3.6+），Safari（5+），以及IE（11+）均支持rem，移动端的主流浏览器，包括UC，QQ浏览器，三星内置浏览器也都支持rem。可以说只要不用支持古老的浏览器，如IE8、初代iPhone的Safari，都可以放心地使用rem。</p>
-<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>在说rem的优点之前我们先来回顾一下移动端适配的一般做法。</p>
-<ol>
-<li>流式布局，宽度使用百分比定义，高度和文字大小用px固定。缺点是不同屏幕尺寸下显示效果会有差异，在大屏幕手机下甚至会因为元素宽度被过度拉伸导致显示效果不协调。因此仅适用于一些比较简单的页面。</li>
-<li>固定宽度，给页面设置固定宽度，超出部分留白。很明显，这种粗暴的方法对大屏手机很不友好。</li>
-<li>弹性盒子布局。</li>
-<li>响应式布局，其实就是针对几个主流设置对应的CSS，再利用媒体查询（Media Queries）来确定需要显示的样式。当然这样要求我们写额外的样式，提高了工作量，同时由于不可能为所有屏幕尺寸写针对性的样式，因此只能在若干主流的屏幕尺寸下做到完美显示。</li>
-</ol>
-<p>我们发现这些方法要么不能在不同设备上完美显示，要么就是过于复杂，而rem却能很好的兼顾简单和兼容性。</p>
-<p>之前提到rem是相对于根元素字体大小的单位，如果根元素的font size是16px，那么1rem就是16px，如果根元素是37.5px，那么1rem就是37.5px。可见，如果页面元素都用rem来设置大小，那么我们只需要修改根元素的font size就能等比例地缩放整个页面。也就是说只要根据不同屏幕尺寸设置根元素font size，我们就能等比例适配所有屏幕，是不是很优雅？</p>
-<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>说了那么多我们来看看究竟要怎么使用吧。先看一个例子。</p>
-<p><a href="https://codepen.io/weibinzhu/pen/BdKexp" target="_blank" rel="external">Demo</a><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn"</span>&gt;</span>button<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">html</span>&#123;</div><div class="line">  <span class="attribute">font-size</span>:<span class="number">40px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.btn</span>&#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">2rem</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">0.5rem</span>;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">0.5rem</span>;</div><div class="line">  <span class="attribute">line-height</span>: <span class="number">0.5rem</span>;</div><div class="line">  <span class="attribute">text-align</span>:center;</div><div class="line">  <span class="attribute">background-color</span>:red;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><img src="/images/btn-example.JPG" alt="image"></p>
-<p>例子中div的单位都是rem，留意宽高，可以看到宽高分别是80px和10px，而这正分别等于 2*40px和0.5*40px。这表明宽高是通过根元素html的font-size计算出来的，此时1rem=40px。</p>
-<p>此时我们把html的font-size修改成原来的两倍即80px，其他不作改动，结果如下图所示。<br><img src="/images/btn-example-large.JPG" alt="image"><br>显然div的宽高也变成了原来的两倍，此时1rem=80px。这也印证了之前所说的只需通过修改根元素的font-size值就可以等比例缩放。</p>
-<p>相信到这里大家也发现，每次设置rem都要换算一遍，非常麻烦。为了方便我们可以：</p>
-<ol>
-<li>将根元素的font-size设置成100px，这样只需要将px的数字的小数点往前挪两位再把单位换成rem就可以了，例如160px换成rem就是1.6rem。</li>
-<li>利用sass，less等css预处理语言，设置一个函数专门用于单位转换。由于各种语言实现有区别，这里就不给出例子了。</li>
-<li>利用现成的转换工具，这里推荐一个在线转换工具: <a href="http://520ued.com/tools/rem" target="_blank" rel="external">px–&gt;rem</a></li>
-</ol>
-<p><strong>这篇文章的主题是移动端适配，现在就具体讲讲在实际运用中如何用rem适配不同大小的屏幕</strong></p>
-<p>一般来说我们拿到的设计稿都是以iphone6的屏幕为基准设计的，也就是说宽度为375px，假设我们把根元素的font-size设置为100px。如果我们要适配的屏幕宽度为320px（即iphone5的屏幕宽度），那么此时根元素font-size应该设置为：100*（320/375），即85.3px。通过这样设置我们的页面便能完美等比例适配320px的屏幕。</p>
-<p><strong>为了计算方便，也为了避免根元素的font-size太大</strong>我们一般把根元素font-size设置为屏幕宽度的1/10（即375px的屏幕就设置为37.5px，320px的屏幕就设置为32px）。这样我们无需经过计算就能直接根据需要适配的屏幕宽度来得出font-size的大小，同时也能避免根元素font-size太大。</p>
-<p><strong>现在问题来了</strong>，<del>学挖掘机哪家强</del> 究竟怎么动态修改font-size呢？有一个简单粗暴地方法，既然主流的屏幕分辨率也就那几个，我们大可以通过media query媒体查询，把最常见的几种情况写下来。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">html</span> &#123;</div><div class="line">    <span class="attribute">font-size </span>: <span class="number">37.5px</span>;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">media</span> only screen and (min-width: <span class="number">320px</span>)&#123;</div><div class="line">    <span class="selector-tag">html</span> &#123;</div><div class="line">        <span class="attribute">font-size</span>: <span class="number">32px</span> <span class="meta">!important</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">media</span> only screen and (min-width: <span class="number">414px</span>)&#123;</div><div class="line">    <span class="selector-tag">html</span> &#123;</div><div class="line">        <span class="attribute">font-size</span>: <span class="number">41.4px</span> <span class="meta">!important</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这样基本能覆盖大部分设备了，如果说一定要适配所有设备，我们还可以通过JS动态计算font-size。<a href="https://m.taobao.com/#index" target="_blank" rel="external">淘宝</a>的首页就是用这个方法，审查元素之后可以看到不断改变屏幕大小，html的font-size都能实时变化。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.getElementsByTagName(<span class="string">'html'</span>)[<span class="number">0</span>].style.fontSize = <span class="built_in">window</span>.innerWidth / <span class="number">10</span> + <span class="string">'px'</span>;</div></pre></td></tr></table></figure></p>
-<p>我们把上面的代码绑定到DOMContentLoaded时间中，这样在进入页面的时候就能马上计算出font-size。</p>
-<p>参考资料：</p>
-<p><a href="http://www.alloyteam.com/2016/03/mobile-web-adaptation-tool-rem/" target="_blank" rel="external">http://www.alloyteam.com/2016/03/mobile-web-adaptation-tool-rem/</a>  </p>
-<p><a href="http://caibaojian.com/toutiao/6215" target="_blank" rel="external">http://caibaojian.com/toutiao/6215</a></p>
-<p><a href="https://isux.tencent.com/web-app-rem.html" target="_blank" rel="external">https://isux.tencent.com/web-app-rem.html</a></p>
+        <p>在写页面的时候我们经常需要写一些带文字的分割线。我们需要横线垂直居中，文字水平居中，并且横线的长度能根据文字长度自适应。类似这样：<br><img src="/images/dividerSample.JPG" alt="image"><br>为此我参考了一些插件的做法，加上自己的一些思考，总结出以下三种写法：</p>
+<h3 id="使用table-cell以及背景图片（vux以及Cola-UI的写法）"><a href="#使用table-cell以及背景图片（vux以及Cola-UI的写法）" class="headerlink" title="使用table-cell以及背景图片（vux以及Cola-UI的写法）"></a>使用table-cell以及背景图片（vux以及Cola-UI的写法）</h3><p>这个方法主要应用了table-cell的自适应特性，再配合使用background-position将北京图片居中。为了减少http请求，此处的图片采用base64。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"divider"</span>&gt;</span></div><div class="line">	自适应小标题</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.divider</span>&#123;</div><div class="line">	<span class="attribute">text-align</span>: center; </div><div class="line">	<span class="attribute">display</span>: table;</div><div class="line">	<span class="attribute">white-space</span>: nowrap;<span class="comment">/*不然文字会被挤成一行一个字*/</span></div><div class="line">	<span class="attribute">height</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">line-height</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">16px</span>;</div><div class="line">	<span class="attribute">color</span>:<span class="number">#353535</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.divider</span><span class="selector-pseudo">:before</span>,<span class="selector-class">.divider</span><span class="selector-pseudo">:after</span>&#123;</div><div class="line">	<span class="attribute">content</span>: <span class="string">''</span>;</div><div class="line">	<span class="attribute">display</span>: table-cell;</div><div class="line">	<span class="attribute">width</span>: <span class="number">50%</span>; <span class="comment">/*设置50%是为了确保能自适应文字宽度，最小的时候也能占满一行，如果有文字就会挤开*/</span></div><div class="line">	<span class="attribute">background-repeat</span>: no-repeat;</div><div class="line">	<span class="attribute">background-image</span>: <span class="built_in">url</span>(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABaAAAAACCAYAAACuTHuKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo1OThBRDY4OUNDMTYxMUU0OUE3NUVGOEJDMzMzMjE2NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo1OThBRDY4QUNDMTYxMUU0OUE3NUVGOEJDMzMzMjE2NyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjU5OEFENjg3Q0MxNjExRTQ5QTc1RUY4QkMzMzMyMTY3IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU5OEFENjg4Q0MxNjExRTQ5QTc1RUY4QkMzMzMyMTY3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+VU513gAAADVJREFUeNrs0DENACAQBDBIWLGBJQby/mUcJn5sJXQmOQMAAAAAAJqt+2prAAAAAACg2xdgANk6BEVuJgyMAAAAAElFTkSuQmCC);</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.divider</span><span class="selector-pseudo">:before</span>&#123;</div><div class="line">	<span class="attribute">background-position</span>: right <span class="number">1em</span> top <span class="number">50%</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.divider</span><span class="selector-pseudo">:after</span>&#123;</div><div class="line">	<span class="attribute">background-position</span>: left <span class="number">1em</span> top <span class="number">50%</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="使用flex-box"><a href="#使用flex-box" class="headerlink" title="使用flex-box"></a>使用flex-box</h3><p>这个方法主要是利用了flex-box中自动撑满空间的特性，以及<code>align-items:center</code>。优点是代码简洁优雅，缺点是兼容性稍差。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"title"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"line"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"text"</span>&gt;</span>自适应标题<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"line"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.title</span>&#123;</div><div class="line">	<span class="attribute">display</span>: flex;</div><div class="line">	<span class="attribute">flex-direction</span>: row;</div><div class="line">	<span class="attribute">align-items</span>: center; <span class="comment">/*垂直居中*/</span></div><div class="line">	<span class="attribute">width</span>:<span class="number">100%</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.line</span>&#123;</div><div class="line">	<span class="attribute">flex</span>:<span class="number">1</span>; <span class="comment">/*自动撑满剩余空间*/</span></div><div class="line">	<span class="attribute">border-top</span>: <span class="number">1px</span> solid <span class="number">#353535</span>; <span class="comment">/*使用border制作横线*/</span></div><div class="line">&#125;</div><div class="line"><span class="selector-class">.text</span>&#123;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">16px</span>;</div><div class="line">	<span class="attribute">margin</span>:<span class="number">0</span> <span class="number">10px</span>;</div><div class="line">	<span class="attribute">color</span>:<span class="number">#353535</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="利用table-cell的自动撑满特性以及vertical-align特性"><a href="#利用table-cell的自动撑满特性以及vertical-align特性" class="headerlink" title="利用table-cell的自动撑满特性以及vertical-align特性"></a>利用table-cell的自动撑满特性以及vertical-align特性</h3><p>这个是我自己根据前两个方案总结出来的。其实实现这种分割线的要点在于实现自动撑满空间，以及垂直居中。恰好table-cell都能做到这两点。</p>
+<p>我提出的这个方法缺点是html结构有点复杂。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"divider"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"line-container"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"line"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"text"</span>&gt;</span>自适应小标题<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"line-container"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"line"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.divider</span>&#123;</div><div class="line">	<span class="attribute">display</span>: table;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">16px</span>;</div><div class="line">	<span class="attribute">color</span>: <span class="number">#353535</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">30px</span>;</div><div class="line">	<span class="attribute">line-height</span>: <span class="number">30px</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.line-container</span>&#123;</div><div class="line">	<span class="attribute">display</span>: table-cell;</div><div class="line">	<span class="attribute">width</span>: <span class="number">50%</span>;</div><div class="line">	<span class="attribute">vertical-align</span>: middle; <span class="comment">/*让table-cell内部的元素垂直居中*/</span></div><div class="line">	<span class="attribute">padding</span>: <span class="number">0</span> <span class="number">10px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.line</span>&#123;</div><div class="line">	<span class="attribute">width</span>: <span class="number">100%</span>; <span class="comment">/*内部元素的长度撑满父元素即可*/</span></div><div class="line">	<span class="attribute">border-top</span>: <span class="number">1px</span> solid <span class="number">#353535</span>;<span class="comment">/*跟之前一样用border实现横线*/</span> </div><div class="line">&#125;</div><div class="line"><span class="selector-class">.text</span>&#123;</div><div class="line">	<span class="attribute">white-space</span>: nowrap;<span class="comment">/*跟之前一样避免文字被挤成一个字一行*/</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<p>以上就是我收集、提出的三种实现自适应文字分割线的方法，欢迎大家提出修改意见：）</p>
 
       
     </div>
@@ -420,12 +397,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/CSS/" rel="tag"># CSS</a>
-          
-        </div>
-      
 
       
       
@@ -435,8 +406,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/31/hello-world/" rel="next" title="hello-world">
-                <i class="fa fa-chevron-left"></i> hello-world
+              <a href="/15分钟入门正则表达式/" rel="next" title="30分钟入门正则表达式">
+                <i class="fa fa-chevron-left"></i> 30分钟入门正则表达式
               </a>
             
           </div>
@@ -444,10 +415,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/03/15分钟入门正则表达式/" rel="prev" title="30分钟入门正则表达式">
-                30分钟入门正则表达式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -628,7 +595,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是rem？"><span class="nav-number">1.</span> <span class="nav-text">什么是rem？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#兼容性"><span class="nav-number">2.</span> <span class="nav-text">兼容性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">3.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用法"><span class="nav-number">4.</span> <span class="nav-text">用法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用table-cell以及背景图片（vux以及Cola-UI的写法）"><span class="nav-number">1.</span> <span class="nav-text">使用table-cell以及背景图片（vux以及Cola-UI的写法）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用flex-box"><span class="nav-number">2.</span> <span class="nav-text">使用flex-box</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用table-cell的自动撑满特性以及vertical-align特性"><span class="nav-number">3.</span> <span class="nav-text">利用table-cell的自动撑满特性以及vertical-align特性</span></a></li></ol></div>
             
 
           </div>
