@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CSS," />
+  <meta name="keywords" content="Javascript," />
 
 
 
@@ -93,20 +93,20 @@
 
 
 
-<meta name="description" content="在写页面的时候我们经常需要写一些带文字的分割线。我们需要横线垂直居中，文字水平居中，并且横线的长度能根据文字长度自适应。类似这样：为此我参考了一些插件的做法，加上自己的一些思考，总结出以下三种写法： 使用table-cell以及背景图片（vux以及Cola-UI的写法）这个方法主要应用了table-cell的自适应特性，再配合使用background-position将北京图片居中。为了减少htt">
-<meta name="keywords" content="CSS">
+<meta name="description" content="什么是大数运算大数运算顾名思义就是一些很大的数之间的运算。之所以要用大数运算算法处理原因有二：  我们知道计算机能表现的数字范围是有限的，超过这个范围会出现溢出。 在js中只有一定范围内的数才能精确到个位，超过这个范围的数是不准确的。有关js中的数字可以参考下图：  算法在这里我以加法为例，介绍三个大数运算的方法。 方法一：常规方法思路就是运用加法的原理，一位一位的加123456789101112">
+<meta name="keywords" content="Javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="几种方法实现自适应的有文字分割线">
-<meta property="og:url" content="https://weibinzhu.github.io/几种方法实现自适应的有文字分割线/index.html">
+<meta property="og:title" content="谈谈JS中的大数运算">
+<meta property="og:url" content="https://weibinzhu.github.io/2018-1-谈谈js中的大数运算/index.html">
 <meta property="og:site_name" content="前端脚印">
-<meta property="og:description" content="在写页面的时候我们经常需要写一些带文字的分割线。我们需要横线垂直居中，文字水平居中，并且横线的长度能根据文字长度自适应。类似这样：为此我参考了一些插件的做法，加上自己的一些思考，总结出以下三种写法： 使用table-cell以及背景图片（vux以及Cola-UI的写法）这个方法主要应用了table-cell的自适应特性，再配合使用background-position将北京图片居中。为了减少htt">
+<meta property="og:description" content="什么是大数运算大数运算顾名思义就是一些很大的数之间的运算。之所以要用大数运算算法处理原因有二：  我们知道计算机能表现的数字范围是有限的，超过这个范围会出现溢出。 在js中只有一定范围内的数才能精确到个位，超过这个范围的数是不准确的。有关js中的数字可以参考下图：  算法在这里我以加法为例，介绍三个大数运算的方法。 方法一：常规方法思路就是运用加法的原理，一位一位的加123456789101112">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://weibinzhu.github.io/images/dividerSample.JPG">
-<meta property="og:updated_time" content="2018-01-29T15:06:06.425Z">
+<meta property="og:image" content="https://weibinzhu.github.io/images/jsNumber.png">
+<meta property="og:updated_time" content="2018-01-30T16:54:30.972Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="几种方法实现自适应的有文字分割线">
-<meta name="twitter:description" content="在写页面的时候我们经常需要写一些带文字的分割线。我们需要横线垂直居中，文字水平居中，并且横线的长度能根据文字长度自适应。类似这样：为此我参考了一些插件的做法，加上自己的一些思考，总结出以下三种写法： 使用table-cell以及背景图片（vux以及Cola-UI的写法）这个方法主要应用了table-cell的自适应特性，再配合使用background-position将北京图片居中。为了减少htt">
-<meta name="twitter:image" content="https://weibinzhu.github.io/images/dividerSample.JPG">
+<meta name="twitter:title" content="谈谈JS中的大数运算">
+<meta name="twitter:description" content="什么是大数运算大数运算顾名思义就是一些很大的数之间的运算。之所以要用大数运算算法处理原因有二：  我们知道计算机能表现的数字范围是有限的，超过这个范围会出现溢出。 在js中只有一定范围内的数才能精确到个位，超过这个范围的数是不准确的。有关js中的数字可以参考下图：  算法在这里我以加法为例，介绍三个大数运算的方法。 方法一：常规方法思路就是运用加法的原理，一位一位的加123456789101112">
+<meta name="twitter:image" content="https://weibinzhu.github.io/images/jsNumber.png">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://weibinzhu.github.io/几种方法实现自适应的有文字分割线/"/>
+  <link rel="canonical" href="https://weibinzhu.github.io/2018-1-谈谈js中的大数运算/"/>
 
 
 
 
 
-  <title>几种方法实现自适应的有文字分割线 | 前端脚印</title>
+  <title>谈谈JS中的大数运算 | 前端脚印</title>
   
 
 
@@ -283,7 +283,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://weibinzhu.github.io/几种方法实现自适应的有文字分割线/">
+    <link itemprop="mainEntityOfPage" href="https://weibinzhu.github.io/2018-1-谈谈js中的大数运算/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Fatbin37">
@@ -300,7 +300,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">几种方法实现自适应的有文字分割线</h1>
+          <h1 class="post-title" itemprop="name headline">谈谈JS中的大数运算</h1>
         
 
         <div class="post-meta">
@@ -312,8 +312,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-11T15:14:35+08:00">
-                2018-01-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-31T00:54:39+08:00">
+                2018-01-31
               </time>
             
 
@@ -330,7 +330,7 @@
 
           
           
-             <span id="/几种方法实现自适应的有文字分割线/" class="leancloud_visitors" data-flag-title="几种方法实现自适应的有文字分割线">
+             <span id="/2018-1-谈谈js中的大数运算/" class="leancloud_visitors" data-flag-title="谈谈JS中的大数运算">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -358,19 +358,16 @@
       
 
       
-        <p>在写页面的时候我们经常需要写一些带文字的分割线。我们需要横线垂直居中，文字水平居中，并且横线的长度能根据文字长度自适应。类似这样：<br><img src="/images/dividerSample.JPG" alt="image"><br>为此我参考了一些插件的做法，加上自己的一些思考，总结出以下三种写法：</p>
-<h3 id="使用table-cell以及背景图片（vux以及Cola-UI的写法）"><a href="#使用table-cell以及背景图片（vux以及Cola-UI的写法）" class="headerlink" title="使用table-cell以及背景图片（vux以及Cola-UI的写法）"></a>使用table-cell以及背景图片（vux以及Cola-UI的写法）</h3><p>这个方法主要应用了table-cell的自适应特性，再配合使用background-position将北京图片居中。为了减少http请求，此处的图片采用base64。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"divider"</span>&gt;</span></div><div class="line">	自适应小标题</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.divider</span>&#123;</div><div class="line">	<span class="attribute">text-align</span>: center; </div><div class="line">	<span class="attribute">display</span>: table;</div><div class="line">	<span class="attribute">white-space</span>: nowrap;<span class="comment">/*不然文字会被挤成一行一个字*/</span></div><div class="line">	<span class="attribute">height</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">line-height</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">16px</span>;</div><div class="line">	<span class="attribute">color</span>:<span class="number">#353535</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.divider</span><span class="selector-pseudo">:before</span>,<span class="selector-class">.divider</span><span class="selector-pseudo">:after</span>&#123;</div><div class="line">	<span class="attribute">content</span>: <span class="string">''</span>;</div><div class="line">	<span class="attribute">display</span>: table-cell;</div><div class="line">	<span class="attribute">width</span>: <span class="number">50%</span>; <span class="comment">/*设置50%是为了确保能自适应文字宽度，最小的时候也能占满一行，如果有文字就会挤开*/</span></div><div class="line">	<span class="attribute">background-repeat</span>: no-repeat;</div><div class="line">	<span class="attribute">background-image</span>: <span class="built_in">url</span>(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABaAAAAACCAYAAACuTHuKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo1OThBRDY4OUNDMTYxMUU0OUE3NUVGOEJDMzMzMjE2NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo1OThBRDY4QUNDMTYxMUU0OUE3NUVGOEJDMzMzMjE2NyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjU5OEFENjg3Q0MxNjExRTQ5QTc1RUY4QkMzMzMyMTY3IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU5OEFENjg4Q0MxNjExRTQ5QTc1RUY4QkMzMzMyMTY3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+VU513gAAADVJREFUeNrs0DENACAQBDBIWLGBJQby/mUcJn5sJXQmOQMAAAAAAJqt+2prAAAAAACg2xdgANk6BEVuJgyMAAAAAElFTkSuQmCC);</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.divider</span><span class="selector-pseudo">:before</span>&#123;</div><div class="line">	<span class="attribute">background-position</span>: right <span class="number">1em</span> top <span class="number">50%</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.divider</span><span class="selector-pseudo">:after</span>&#123;</div><div class="line">	<span class="attribute">background-position</span>: left <span class="number">1em</span> top <span class="number">50%</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="使用flex-box"><a href="#使用flex-box" class="headerlink" title="使用flex-box"></a>使用flex-box</h3><p>这个方法主要是利用了flex-box中自动撑满空间的特性，以及<code>align-items:center</code>。优点是代码简洁优雅，缺点是兼容性稍差。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"title"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"line"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"text"</span>&gt;</span>自适应标题<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"line"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.title</span>&#123;</div><div class="line">	<span class="attribute">display</span>: flex;</div><div class="line">	<span class="attribute">flex-direction</span>: row;</div><div class="line">	<span class="attribute">align-items</span>: center; <span class="comment">/*垂直居中*/</span></div><div class="line">	<span class="attribute">width</span>:<span class="number">100%</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.line</span>&#123;</div><div class="line">	<span class="attribute">flex</span>:<span class="number">1</span>; <span class="comment">/*自动撑满剩余空间*/</span></div><div class="line">	<span class="attribute">border-top</span>: <span class="number">1px</span> solid <span class="number">#353535</span>; <span class="comment">/*使用border制作横线*/</span></div><div class="line">&#125;</div><div class="line"><span class="selector-class">.text</span>&#123;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">16px</span>;</div><div class="line">	<span class="attribute">margin</span>:<span class="number">0</span> <span class="number">10px</span>;</div><div class="line">	<span class="attribute">color</span>:<span class="number">#353535</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="利用table-cell的自动撑满特性以及vertical-align特性"><a href="#利用table-cell的自动撑满特性以及vertical-align特性" class="headerlink" title="利用table-cell的自动撑满特性以及vertical-align特性"></a>利用table-cell的自动撑满特性以及vertical-align特性</h3><p>这个是我自己根据前两个方案总结出来的。其实实现这种分割线的要点在于实现自动撑满空间，以及垂直居中。恰好table-cell都能做到这两点。</p>
-<p>我提出的这个方法缺点是html结构有点复杂。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"divider"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"line-container"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"line"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"text"</span>&gt;</span>自适应小标题<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"line-container"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"line"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.divider</span>&#123;</div><div class="line">	<span class="attribute">display</span>: table;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">16px</span>;</div><div class="line">	<span class="attribute">color</span>: <span class="number">#353535</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">30px</span>;</div><div class="line">	<span class="attribute">line-height</span>: <span class="number">30px</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.line-container</span>&#123;</div><div class="line">	<span class="attribute">display</span>: table-cell;</div><div class="line">	<span class="attribute">width</span>: <span class="number">50%</span>;</div><div class="line">	<span class="attribute">vertical-align</span>: middle; <span class="comment">/*让table-cell内部的元素垂直居中*/</span></div><div class="line">	<span class="attribute">padding</span>: <span class="number">0</span> <span class="number">10px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.line</span>&#123;</div><div class="line">	<span class="attribute">width</span>: <span class="number">100%</span>; <span class="comment">/*内部元素的长度撑满父元素即可*/</span></div><div class="line">	<span class="attribute">border-top</span>: <span class="number">1px</span> solid <span class="number">#353535</span>;<span class="comment">/*跟之前一样用border实现横线*/</span> </div><div class="line">&#125;</div><div class="line"><span class="selector-class">.text</span>&#123;</div><div class="line">	<span class="attribute">white-space</span>: nowrap;<span class="comment">/*跟之前一样避免文字被挤成一个字一行*/</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<hr>
-<p>以上就是我收集、提出的三种实现自适应文字分割线的方法，欢迎大家提出修改意见：）</p>
+        <h3 id="什么是大数运算"><a href="#什么是大数运算" class="headerlink" title="什么是大数运算"></a>什么是大数运算</h3><p>大数运算顾名思义就是一些很大的数之间的运算。之所以要用大数运算算法处理原因有二：</p>
+<ol>
+<li>我们知道计算机能表现的数字范围是有限的，超过这个范围会出现溢出。</li>
+<li>在js中只有一定范围内的数才能精确到个位，超过这个范围的数是不准确的。有关js中的数字可以参考下图：<br><img src="/images/jsNumber.png" alt="image"></li>
+</ol>
+<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p>在这里我以加法为例，介绍三个大数运算的方法。</p>
+<h4 id="方法一：常规方法"><a href="#方法一：常规方法" class="headerlink" title="方法一：常规方法"></a>方法一：常规方法</h4><p>思路就是运用加法的原理，一位一位的加<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a,b</span>) </span>&#123;</div><div class="line">    <span class="comment">// 初始化，把两个数字转为数组</span></div><div class="line">    <span class="comment">// 这里将数组反过来是因为两个数字长短不一，反过来有助于处理边界问题</span></div><div class="line">    <span class="keyword">if</span> (a.length&gt;=b.length) &#123;</div><div class="line">		<span class="keyword">var</span> lgArr = a.split(<span class="string">""</span>).reverse(), smArr = b.split(<span class="string">""</span>).reverse();</div><div class="line">	&#125;<span class="keyword">else</span>&#123;</div><div class="line">		<span class="keyword">var</span> lgArr = b.split(<span class="string">""</span>).reverse(), smArr = a.split(<span class="string">""</span>).reverse();</div><div class="line">	&#125;</div><div class="line">    <span class="keyword">var</span> lgLength = lgArr.length,</div><div class="line">		res = <span class="string">''</span>;	</div><div class="line"></div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;lgLength; i++)&#123;</div><div class="line">		lgArr[i] = +lgArr[i] + +smArr[i];<span class="comment">// 使用一元加来将字符串转成数字</span></div><div class="line">		<span class="keyword">if</span>(lgArr[i]&gt;<span class="number">10</span>)&#123;<span class="comment">// 如果大于10代表要进位</span></div><div class="line">			lgArr[i] -= <span class="number">10</span>;</div><div class="line">			<span class="keyword">if</span>(i==lgLength<span class="number">-1</span>)&#123;</div><div class="line">				lgArr[i+<span class="number">1</span>] = <span class="number">1</span>;</div><div class="line">			&#125;<span class="keyword">else</span>&#123;</div><div class="line">				lgArr[i+<span class="number">1</span>] = +lgArr[i+<span class="number">1</span>] + <span class="number">1</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	res = lgArr.reverse().join(<span class="string">""</span>);</div><div class="line">	<span class="keyword">return</span> res;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="方法二：利用js的奇淫技巧"><a href="#方法二：利用js的奇淫技巧" class="headerlink" title="方法二：利用js的奇淫技巧"></a>方法二：利用js的奇淫技巧</h4><p>JS中有很多奇淫技巧，合理运用可以让代码看起来更简洁<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add1</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">	<span class="comment">// ~取反操作符，~0 === -1，~~0 === 0，~~null === 0，~~'0' === 0</span></div><div class="line">	<span class="comment">// 用+也能实现字符转成数字，不过~~能处理null的情况</span></div><div class="line">	<span class="comment">// c&gt;0会返回一个布尔值，布尔值转换成数字的时候true为1，false为0</span></div><div class="line">	<span class="keyword">var</span> res = <span class="string">''</span>,</div><div class="line">		c = <span class="number">0</span>;</div><div class="line">	a = a.split(<span class="string">''</span>);</div><div class="line">	b = b.split(<span class="string">''</span>);</div><div class="line">	<span class="keyword">while</span>(a.length||b.length||c)&#123;</div><div class="line">		c = c + ~~a.pop() + ~~b.pop();</div><div class="line">		res = c % <span class="number">10</span> + res;</div><div class="line">		c = c &gt; <span class="number">9</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> res.replace(<span class="regexp">/^0+/</span>,<span class="string">''</span>);<span class="comment">// 去掉前面可能存在的0</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="方法三：快速算法"><a href="#方法三：快速算法" class="headerlink" title="方法三：快速算法"></a>方法三：快速算法</h3><p>前两种一位一位的加太慢了，我们可以充分利用js的精度，14位14位的算。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add2</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">	<span class="comment">// 主要思想是分开一段段加，这样既能保证精度且不溢出，也能提高速度</span></div><div class="line">	<span class="comment">// 使用到了substr这个方法，String.substr(idx,length)接收两个参数，第一个参数是索引，第二个参数是长度，第二个参数可省略</span></div><div class="line">	<span class="comment">// 如果索引超范围，或者长度小于1那么返回空字符串</span></div><div class="line">	<span class="keyword">var</span> res = [];</div><div class="line">	<span class="keyword">while</span>(a.length||b.length)&#123;</div><div class="line">		res.push(<span class="built_in">parseInt</span>(a.substr(<span class="number">-14</span>)||<span class="number">0</span>,<span class="number">10</span>)+<span class="built_in">parseInt</span>(b.substr(<span class="number">-14</span>)||<span class="number">0</span>,<span class="number">10</span>));</div><div class="line">		a = a.substr(<span class="number">0</span>,a.length<span class="number">-14</span>);</div><div class="line">		b = b.substr(<span class="number">0</span>,b.length<span class="number">-14</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">var</span> c = <span class="number">0</span>, o = <span class="string">''</span>;</div><div class="line">	<span class="built_in">console</span>.log(res)</div><div class="line">	<span class="keyword">while</span>(res.length)&#123;</div><div class="line">		<span class="keyword">let</span> temp = (res.shift() + c).toString();</div><div class="line">		o = temp.substr(<span class="number">-14</span>) + o;</div><div class="line">		c = <span class="built_in">parseInt</span>(temp.substr(<span class="number">0</span>,temp.length<span class="number">-14</span>) || <span class="number">0</span>,<span class="number">10</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> o;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>实际上只用一个循环就可以了，上面只是方便理解。只用一个循环的话就是这样：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add3</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> res = <span class="string">''</span>, c = <span class="number">0</span>;</div><div class="line">	<span class="keyword">while</span>(a.length||b.length)&#123;</div><div class="line">		<span class="keyword">let</span> temp = (<span class="built_in">parseInt</span>(a.substr(<span class="number">-14</span>)||<span class="number">0</span>,<span class="number">10</span>)+<span class="built_in">parseInt</span>(b.substr(<span class="number">-14</span>)||<span class="number">0</span>,<span class="number">10</span>) + c).toString();</div><div class="line">		res = temp.substr(<span class="number">-14</span>) + res;</div><div class="line">		c = <span class="built_in">parseInt</span>(temp.substr(<span class="number">0</span>,temp.length<span class="number">-14</span>,<span class="number">10</span>)||<span class="number">0</span>,<span class="number">10</span>);</div><div class="line">		a = a.substr(<span class="number">0</span>,a.length<span class="number">-14</span>);</div><div class="line">		b = b.substr(<span class="number">0</span>,b.length<span class="number">-14</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> res;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -400,7 +397,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CSS/" rel="tag"># CSS</a>
+            <a href="/tags/Javascript/" rel="tag"># Javascript</a>
           
         </div>
       
@@ -413,8 +410,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/15分钟入门正则表达式/" rel="next" title="30分钟入门正则表达式">
-                <i class="fa fa-chevron-left"></i> 30分钟入门正则表达式
+              <a href="/谈谈Javascript中的void/" rel="next" title="谈谈Javascript中的void">
+                <i class="fa fa-chevron-left"></i> 谈谈Javascript中的void
               </a>
             
           </div>
@@ -422,10 +419,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/谈谈Javascript中的void/" rel="prev" title="谈谈Javascript中的void">
-                谈谈Javascript中的void <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -606,7 +599,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用table-cell以及背景图片（vux以及Cola-UI的写法）"><span class="nav-number">1.</span> <span class="nav-text">使用table-cell以及背景图片（vux以及Cola-UI的写法）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用flex-box"><span class="nav-number">2.</span> <span class="nav-text">使用flex-box</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用table-cell的自动撑满特性以及vertical-align特性"><span class="nav-number">3.</span> <span class="nav-text">利用table-cell的自动撑满特性以及vertical-align特性</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是大数运算"><span class="nav-number">1.</span> <span class="nav-text">什么是大数运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法"><span class="nav-number">2.</span> <span class="nav-text">算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法一：常规方法"><span class="nav-number">2.1.</span> <span class="nav-text">方法一：常规方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法二：利用js的奇淫技巧"><span class="nav-number">2.2.</span> <span class="nav-text">方法二：利用js的奇淫技巧</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法三：快速算法"><span class="nav-number">3.</span> <span class="nav-text">方法三：快速算法</span></a></li></ol></div>
             
 
           </div>
