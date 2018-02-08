@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="baidu-site-verification" content="s8Pe1TBqyy" />
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Javascript,测试," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="测试驱动开发能『迫使』我们在开发前设计好api再实现细节，开发过程中尽量做到单元解耦（否则单元不可测），也便于我们日后进行重构。在前端开发中我们一般在核心库和中间件的开发中使用单元测试，写ui界面时则一般只会『做个类似按键精灵的东西，自动点点点』。 在这里我会简单介绍一下怎么使用should.js+Mocha+Karma+Travis.CI做前端自动化测试。 他们是什么？首先来解释一下提到过的那些">
+<meta name="keywords" content="Javascript,测试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端自动化测试入门（should.js+Mocha+Karma+Travis-CI)">
+<meta property="og:url" content="https://weibinzhu.github.io/posts/d4b1664a/index.html">
+<meta property="og:site_name" content="前端脚印">
+<meta property="og:description" content="测试驱动开发能『迫使』我们在开发前设计好api再实现细节，开发过程中尽量做到单元解耦（否则单元不可测），也便于我们日后进行重构。在前端开发中我们一般在核心库和中间件的开发中使用单元测试，写ui界面时则一般只会『做个类似按键精灵的东西，自动点点点』。 在这里我会简单介绍一下怎么使用should.js+Mocha+Karma+Travis.CI做前端自动化测试。 他们是什么？首先来解释一下提到过的那些">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://weibinzhu.github.io/images/travis.JPG">
+<meta property="og:image" content="https://travis-ci.org/weibinzhu/testExample.svg?branch=master">
+<meta property="og:updated_time" content="2018-02-02T16:16:46.629Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端自动化测试入门（should.js+Mocha+Karma+Travis-CI)">
+<meta name="twitter:description" content="测试驱动开发能『迫使』我们在开发前设计好api再实现细节，开发过程中尽量做到单元解耦（否则单元不可测），也便于我们日后进行重构。在前端开发中我们一般在核心库和中间件的开发中使用单元测试，写ui界面时则一般只会『做个类似按键精灵的东西，自动点点点』。 在这里我会简单介绍一下怎么使用should.js+Mocha+Karma+Travis.CI做前端自动化测试。 他们是什么？首先来解释一下提到过的那些">
+<meta name="twitter:image" content="https://weibinzhu.github.io/images/travis.JPG">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://weibinzhu.github.io/posts/d4b1664a/"/>
+
+
+
+
+
+  <title>前端自动化测试入门（should.js+Mocha+Karma+Travis-CI) | 前端脚印</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">前端脚印</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">记录前端路上留下的一个个脚印</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://weibinzhu.github.io/posts/d4b1664a/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fatbin37">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端脚印">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">前端自动化测试入门（should.js+Mocha+Karma+Travis-CI)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-03T00:13:41+08:00">
+                2018-02-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/posts/d4b1664a/" class="leancloud_visitors" data-flag-title="前端自动化测试入门（should.js+Mocha+Karma+Travis-CI)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>测试驱动开发能『迫使』我们在开发前设计好api再实现细节，开发过程中尽量做到单元解耦（否则单元不可测），也便于我们日后进行重构。在前端开发中我们一般在核心库和中间件的开发中使用单元测试，写ui界面时则一般只会『做个类似按键精灵的东西，自动点点点』。</p>
+<p>在这里我会简单介绍一下怎么使用should.js+Mocha+Karma+Travis.CI做前端自动化测试。</p>
+<h3 id="他们是什么？"><a href="#他们是什么？" class="headerlink" title="他们是什么？"></a>他们是什么？</h3><p>首先来解释一下提到过的那些工具都是些什么。</p>
+<h4 id="should-js"><a href="#should-js" class="headerlink" title="should.js"></a>should.js</h4><p>既然是要做测试，那么显然我们需要判断一下输出结果是否符合我们预期，如果符合就是测试通过。而<strong>断言</strong>就是帮助我们完成这个判断的。</p>
+<blockquote>
+<p>在程序设计中，断言（assertion）是一种放在程序中的一阶逻辑（如一个结果为真或是假的逻辑判断式），目的是为了标示与验证程序开发者预期的结果－当程序运行到断言的位置时，对应的断言应该为真。若断言不为真时，程序会中止运行，并给出错误消息。–维基百科</p>
+</blockquote>
+<p>在Node.js中内置有一个assert模块用于断言。然而他提供的函数有限，有时候并不能满足需求。</p>
+<p>在这里我们使用的是一个叫<a href="https://github.com/shouldjs/should.js" target="_blank" rel="external">should.js</a>的第三方断言库。他的API 非常语义，缺点是文档太烂。</p>
+<h4 id="Mocha"><a href="#Mocha" class="headerlink" title="Mocha"></a>Mocha</h4><p><a href="https://github.com/mochajs/mocha" target="_blank" rel="external">Mocha（“摩卡”）</a>是一个Javascript测试框架，而所谓测试框架其实就是用来运行一些符合框架要求的测试脚本并给出测试结果以达到测试的目的，我们的测试用例就写在那些测试脚本中。除了Mocha以外，Jasmine（“茉莉花”）也是一个很流行的测试框架。</p>
+<h4 id="Karma"><a href="#Karma" class="headerlink" title="Karma"></a>Karma</h4><p><a href="https://github.com/karma-runner/karma" target="_blank" rel="external">Karma</a>是一个Javascript的测试运行器（Test Runner）。</p>
+<p>在一个TDD（测试驱动开发）的过程中，我们经常需要做的，也是最关心的就是编写测试用例、编写实现、运行测试。然而在实际开发中，我们很多时候还要经常做一些类似手动刷新页面，手动引入相应文件等等繁琐的工作。而Karma则能帮组我们从这些繁琐工作中解放出来，我们需要关注的只是编写测试用例和编写实现等核心工作，karma会检测文件的变化，自动运行测试。</p>
+<h4 id="Travis-CI"><a href="#Travis-CI" class="headerlink" title="Travis CI"></a>Travis CI</h4><p>所谓CI（Continuous Integration，简称 CI）就是持续集成的意思。按我的理解，持续集成就是每当项目代码有变更（例如有项目成员push了一份代码上来），就会自动构建、测试并反馈测试结果。而不需要等到代码长得很大的时候再测试，那时候如果出问题也许就只能推倒重来了。</p>
+<p>而Travis CI就是提供这样持续集成服务的一个工具。你用github登陆他的网站，选择一个需要服务的仓库（里面需要有相关的配置文件）。那么以后每一次有代码push到这个仓库的时候Travis CI就会自动构建、测试、反馈结果。</p>
+<h3 id="怎么用？"><a href="#怎么用？" class="headerlink" title="怎么用？"></a>怎么用？</h3><p>下面我会通过一个例子来讲一下简单的基于should.js+Mocha+Karma+Travis-CI的测试流程是怎么样的。当然这里并不能将这几个工具讲解得很透彻，更多用法和配置还请到官网查阅。</p>
+<h4 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h4><p>首先当然是要安装<a href="https://nodejs.org/en/" target="_blank" rel="external">node.js</a>，然后编写package.json等文件。这里我们先不管Karma以及Travis-CI，只在依赖中写上should以及mocha。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// package.json</span></div><div class="line">&#123;</div><div class="line">	<span class="string">"name"</span>: <span class="string">"testExample"</span>,</div><div class="line">    <span class="string">"version"</span>: <span class="string">"0.0.1"</span>,</div><div class="line">    <span class="string">"description"</span>: <span class="string">"an example of testing"</span>,</div><div class="line">    <span class="string">"scripts"</span>: &#123;</div><div class="line">    	<span class="string">"test"</span>: <span class="string">"mocha"</span></div><div class="line">  	&#125;,</div><div class="line">	<span class="string">"author"</span>: <span class="string">"weibinzhu"</span>,</div><div class="line">	<span class="string">"license"</span>: <span class="string">"MIT"</span>,</div><div class="line">	<span class="string">"devDependencies"</span>: &#123;</div><div class="line">		<span class="string">"should"</span>: <span class="string">"^11.2.1"</span>,</div><div class="line">		<span class="string">"mocha"</span>: <span class="string">"^3.5.0"</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>我们约定目录结构如下：<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">└── testExample</div><div class="line">    ├── Readme.md</div><div class="line">    ├── package.json</div><div class="line">    ├── .gitignore</div><div class="line">    └── <span class="class"><span class="keyword">lib</span></span></div><div class="line">        └── add.js</div><div class="line">    └── test</div><div class="line">        └── add.test.js</div></pre></td></tr></table></figure></p>
+<p>lib 用来存放我们的待测试的代码，test文件夹内存放测试代码，add.test.js是我们的测试脚本，一般与要测试的脚本同名，带上.test后缀。</p>
+<p>接下来<code>npm i</code>一下，安装好依赖之后就可以开始了！</p>
+<h4 id="编写测试代码"><a href="#编写测试代码" class="headerlink" title="编写测试代码"></a>编写测试代码</h4><p>首先我们设计一下api以及编写测试脚本了。</p>
+<p>这里我们以实现一个大数相加函数<code>add(a,b)</code>为例子。我们让两个参数<code>a</code>和<code>b</code>都是数字组成的字符串，返回一个由<code>a</code>和<code>b</code>相加结果构成的字符串。例如<code>add(&#39;1&#39;,&#39;1&#39;)===&#39;2&#39;</code>。</p>
+<p>根据这样的api，于是我们写出这样的测试脚本：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// add.test.js</span></div><div class="line"><span class="built_in">require</span>(<span class="string">'should'</span>);</div><div class="line"><span class="comment">// var add = require('../lib/add');</span></div><div class="line"></div><div class="line">describe(<span class="string">'大数相加测试'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	it(<span class="string">'"12"加上"22"等于"34"'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		add(<span class="string">"12"</span>,<span class="string">"22"</span>).should.equal(<span class="string">"34"</span>);</div><div class="line">	&#125;);</div><div class="line">	it(<span class="string">'"843529812342341234"加上"236124361425345435"等于"1079654173767686669"'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		add(<span class="string">"843529812342341234"</span>,<span class="string">"236124361425345435"</span>).should.equal(<span class="string">"1079654173767686669"</span>);</div><div class="line">	&#125;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>我来解释一下：</p>
+<ul>
+<li>由于我们这里使用了should.js这个第三方断言库，我们需要先引入should:<code>require(&#39;should&#39;);</code></li>
+<li>留意脚本里面有一个<code>describe</code>和两个<code>it</code>。一个测试脚本里面应该有一个或更多的<code>describe</code>块，并且每个<code>describe</code>块中应该有一个或更多的<code>it</code>快。</li>
+<li><code>describe</code>叫做<strong>测试套件（test suite）</strong>，表示这是一组测试，第一个参数是这组的名字，第二个参数是一个待执行的函数，在测试的时候会执行这个函数。</li>
+<li><code>it</code>叫做<strong>测试用例（test case</strong>，表示一个测试，第一个参数是这个测试的名字，第二个参数是一个待执行的函数，当进行到这个测试用例的时候就会执行这个函数。如果这个函数内部抛出了错误，那么代表这个测试用例测试失败。</li>
+<li>类似<code>add(&quot;12&quot;,&quot;22&quot;).should.equal(&quot;34&quot;);</code>这样的代码就是一个断言，如果<code>add(&quot;12&quot;,&quot;22&quot;)</code>的返回值不等于<code>&quot;34&quot;</code>，那么久会抛出一个错误，这个测试用例自然就不会通过。可见<code>should.js</code>的api十分语义，一看就知道是什么意思。更多api请到官网查阅，这里就不赘述了。</li>
+</ul>
+<p>现在我们可以回到命令行，输入<code>$ npm test</code>或者<code>$ mocha</code>看一下结果。<code>mocha</code>会自动运行test目录里面的测试脚本，但不会运行里面子目录中的测试脚本。或者你也可以指定运行哪一个测试脚本：<code>$ mocha add.test.js</code></p>
+<p>结果如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&gt; mocha</div><div class="line"></div><div class="line">  大数相加测试</div><div class="line">    <span class="number">1</span>) <span class="string">"12"</span>加上<span class="string">"22"</span>等于<span class="string">"34"</span></div><div class="line">    <span class="number">2</span>) <span class="string">"843529812342341234"</span>加上<span class="string">"236124361425345435"</span>等于<span class="string">"1079654173767686669"</span></div><div class="line"></div><div class="line"></div><div class="line">  <span class="number">0</span> passing (<span class="number">14</span>ms)</div><div class="line">  <span class="number">2</span> failing</div><div class="line"></div><div class="line">  <span class="number">1</span>) 大数相加测试 <span class="string">"12"</span>加上<span class="string">"22"</span>等于<span class="string">"34"</span>:</div><div class="line">     <span class="built_in">ReferenceError</span>: add is not defined</div><div class="line">      at Context.&lt;anonymous&gt; (test\add.test.js:<span class="number">6</span>:<span class="number">3</span>)</div><div class="line"></div><div class="line">  <span class="number">2</span>) 大数相加测试 <span class="string">"843529812342341234"</span>加上<span class="string">"236124361425345435"</span>等于<span class="string">"1079654173767686669"</span>:</div><div class="line">     <span class="built_in">ReferenceError</span>: add is not defined</div><div class="line">      at Context.&lt;anonymous&gt; (test\add.test.js:<span class="number">9</span>:<span class="number">3</span>)</div><div class="line"></div><div class="line">npm ERR! Test failed.  See above <span class="keyword">for</span> more details.</div></pre></td></tr></table></figure></p>
+<p>显然是不通过的，我们<code>add</code>都没写呢</p>
+<h3 id="编写待测试的脚本"><a href="#编写待测试的脚本" class="headerlink" title="编写待测试的脚本"></a>编写待测试的脚本</h3><p>现在让我们把这个add函数实现了，我们把代码写在<code>lib/add.js</code>里面，然后再<code>add.test.js</code>中引入：<code>var add = require(&#39;../lib/add&#39;);</code>。</p>
+<p>add函数的代码如下，具体为什么这么写可以看看我<a href="https://weibinzhu.github.io/2018-1-%E8%B0%88%E8%B0%88js%E4%B8%AD%E7%9A%84%E5%A4%A7%E6%95%B0%E8%BF%90%E7%AE%97/">这篇博客</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 大数相加</span></div><div class="line"><span class="comment"> * @param &#123;[String]&#125; a 操作数</span></div><div class="line"><span class="comment"> * @param &#123;[String]&#125; b 操作数</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> res = <span class="string">""</span>, </div><div class="line">	c = <span class="number">0</span>;</div><div class="line">	a = a.split(<span class="string">""</span>);</div><div class="line">	b = b.split(<span class="string">""</span>);</div><div class="line"></div><div class="line">	<span class="keyword">while</span>(a.length&gt;<span class="number">0</span>||b.length&gt;<span class="number">0</span>||c)&#123;</div><div class="line">		c = c + ~~a.pop() + ~~b.pop();</div><div class="line">		res = c%<span class="number">10</span> + res;</div><div class="line">		c = c &gt; <span class="number">9</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> res.replace(<span class="regexp">/^0+/</span>,<span class="string">''</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = add;</div></pre></td></tr></table></figure>
+<p>现在再运行一遍测试应该就通过了，通过的样子长这样：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; mocha</div><div class="line"></div><div class="line">  大数相加测试</div><div class="line">    √ <span class="string">"12"</span>加上<span class="string">"22"</span>等于<span class="string">"34"</span></div><div class="line">    √ <span class="string">"843529812342341234"</span>加上<span class="string">"236124361425345435"</span>等于<span class="string">"1079654173767686669"</span></div><div class="line"></div><div class="line">  <span class="number">2</span> passing (<span class="number">14</span>ms)</div></pre></td></tr></table></figure></p>
+<h4 id="加上Karma"><a href="#加上Karma" class="headerlink" title="加上Karma"></a>加上Karma</h4><p>现在让我们在dependencies里面加上<code>&quot;karma&quot;: &quot;^1.7.0&quot;,</code>，然后再执行一次<code>npm install</code>。待安装完之后，我们可以在命令行输入<code>$ karma init</code>，karma会问我们一系列的问题。我们按提示操作即可。具体到本例子，我是这样回答那些问题的：<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span> Which testing framework <span class="built_in">do</span> you want <span class="built_in">to</span> use ? </div><div class="line">(mocha)</div><div class="line"><span class="number">2.</span> Do you want <span class="built_in">to</span> use Require.js ?</div><div class="line">(no)</div><div class="line"><span class="number">3.</span> Do you want <span class="built_in">to</span> capture <span class="keyword">any</span> browsers automatically ?</div><div class="line">(Chrome)</div><div class="line"><span class="number">4.</span> What is <span class="keyword">the</span> location <span class="keyword">of</span> your source <span class="keyword">and</span> test <span class="built_in">files</span> ? </div><div class="line">(lib/<span class="built_in">add</span>.js)</div><div class="line">(node_modules/should/should.js)</div><div class="line">(test/<span class="built_in">add</span>.test.js)</div><div class="line"><span class="number">5.</span> Should <span class="keyword">any</span> <span class="keyword">of</span> <span class="keyword">the</span> <span class="built_in">files</span> included <span class="keyword">by</span> <span class="keyword">the</span> previous patterns be excluded ? </div><div class="line">()</div><div class="line"><span class="number">6.</span> Do you want Karma <span class="built_in">to</span> watch all <span class="keyword">the</span> <span class="built_in">files</span> <span class="keyword">and</span> run <span class="keyword">the</span> tests <span class="keyword">on</span> <span class="title">change</span> ?</div><div class="line">(yes)</div></pre></td></tr></table></figure></p>
+<p>回答完之后karma就会自动在根目录创建一个<code>karma.config.js</code>文件。没错，其实我们可以不使用<code>$ karma init</code>，自己在根目录创建一个<code>karma.config.js</code>文件也是可以的。</p>
+<p>注意到第四个问题了吗？此时我们已经让karma跟踪上所需的文件了，此时我们可以放心的去掉<code>add.js</code>里面的<code>module.exports</code>以及<code>add.test.js</code>里面的<code>require(&#39;should&#39;);var add = require(&#39;../lib/add&#39;);</code>。</p>
+<p>现在让我们启动一下Karma吧，在命令行输入<code>$ karma start</code>。一切顺利的话你会看到chrome自动打开，命令行里显示着这个：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">02</span> <span class="selector-tag">02</span> <span class="selector-tag">2018</span> <span class="selector-tag">22</span><span class="selector-pseudo">:14</span><span class="selector-pseudo">:09.880</span><span class="selector-pseudo">:WARN</span> <span class="selector-attr">[karma]</span>: <span class="selector-tag">No</span> <span class="selector-tag">captured</span> <span class="selector-tag">browser</span>, <span class="selector-tag">open</span> <span class="selector-tag">http</span>:<span class="comment">//localhost:9876/</span></div><div class="line"><span class="selector-tag">02</span> <span class="selector-tag">02</span> <span class="selector-tag">2018</span> <span class="selector-tag">22</span><span class="selector-pseudo">:14</span><span class="selector-pseudo">:09.896</span><span class="selector-pseudo">:INFO</span> <span class="selector-attr">[karma]</span>: <span class="selector-tag">Karma</span> <span class="selector-tag">v1</span><span class="selector-class">.7</span><span class="selector-class">.1</span> <span class="selector-tag">server</span> <span class="selector-tag">started</span> <span class="selector-tag">at</span> <span class="selector-tag">http</span>:<span class="comment">//0.0.0.0:9876/</span></div><div class="line"><span class="selector-tag">02</span> <span class="selector-tag">02</span> <span class="selector-tag">2018</span> <span class="selector-tag">22</span><span class="selector-pseudo">:14</span><span class="selector-pseudo">:09.896</span><span class="selector-pseudo">:INFO</span> <span class="selector-attr">[launcher]</span>: <span class="selector-tag">Launching</span> <span class="selector-tag">browser</span> <span class="selector-tag">Chrome</span> <span class="selector-tag">with</span> <span class="selector-tag">unlimited</span> <span class="selector-tag">concurrency</span></div><div class="line"><span class="selector-tag">02</span> <span class="selector-tag">02</span> <span class="selector-tag">2018</span> <span class="selector-tag">22</span><span class="selector-pseudo">:14</span><span class="selector-pseudo">:09.934</span><span class="selector-pseudo">:INFO</span> <span class="selector-attr">[launcher]</span>: <span class="selector-tag">Starting</span> <span class="selector-tag">browser</span> <span class="selector-tag">Chrome</span></div><div class="line"><span class="selector-tag">02</span> <span class="selector-tag">02</span> <span class="selector-tag">2018</span> <span class="selector-tag">22</span><span class="selector-pseudo">:14</span><span class="selector-pseudo">:11.912</span><span class="selector-pseudo">:INFO</span> <span class="selector-attr">[Chrome 64.0.3282 (Windows 10.0.0)]</span>: <span class="selector-tag">Connected</span> <span class="selector-tag">on</span> <span class="selector-tag">socket</span> <span class="selector-tag">Lx8YZORCy1yfAyFAAAAA</span> <span class="selector-tag">with</span> <span class="selector-tag">id</span> <span class="selector-tag">8475447</span></div><div class="line"><span class="selector-tag">Chrome</span> <span class="selector-tag">64</span><span class="selector-class">.0</span><span class="selector-class">.3282</span> (Windows <span class="number">10.0</span>.<span class="number">0</span>): <span class="selector-tag">Executed</span> <span class="selector-tag">2</span> <span class="selector-tag">of</span> <span class="selector-tag">2</span> <span class="selector-tag">SUCCESS</span> (<span class="number">0.016</span> secs / <span class="number">0.003</span> secs)</div></pre></td></tr></table></figure></p>
+<p>一次通过！</p>
+<p>此时如果我们修改一下被跟踪的代码，例如在<code>add.test.js</code>里面将<code>add(&quot;12&quot;,&quot;22&quot;).should.equal(&quot;34&quot;);</code>改成<code>add(&quot;12&quot;,&quot;22&quot;).should.equal(&quot;4&quot;);</code>，保存之后再回到命令行，我们会看到这个：<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Chrome <span class="number">64.0</span><span class="number">.3282</span> (Windows <span class="number">10.0</span><span class="number">.0</span>) 大数相加测试 <span class="string">"12"</span>加上<span class="string">"22"</span>等于<span class="string">"34"</span> FAILED</div><div class="line">        AssertionError: expected <span class="string">'34'</span> <span class="built_in">to</span> be <span class="string">'4'</span></div><div class="line">            <span class="keyword">at</span> Assertion.fail (node_modules/should/should.js:<span class="number">1638</span>:<span class="number">17</span>)</div><div class="line">            <span class="keyword">at</span> Assertion.<span class="built_in">value</span> (node_modules/should/should.js:<span class="number">1715</span>:<span class="number">19</span>)</div><div class="line">            <span class="keyword">at</span> Context.&lt;anonymous&gt; (test/<span class="built_in">add</span>.test.js:<span class="number">6</span>:<span class="number">25</span>)</div><div class="line">Chrome <span class="number">64.0</span><span class="number">.3282</span> (Windows <span class="number">10.0</span><span class="number">.0</span>): Executed <span class="number">1</span> <span class="keyword">of</span> <span class="number">2</span> (<span class="number">1</span> FAILED) (<span class="number">0</span> <span class="built_in">secs</span> / <span class="number">0.002</span> seChrome <span class="number">64.0</span><span class="number">.3282</span> (Windows <span class="number">10.0</span><span class="number">.0</span>): Executed <span class="number">2</span> <span class="keyword">of</span> <span class="number">2</span> (<span class="number">1</span> FAILED) (<span class="number">0</span> <span class="built_in">secs</span> / <span class="number">0.002</span> seChrome <span class="number">64.0</span><span class="number">.3282</span> (Windows <span class="number">10.0</span><span class="number">.0</span>): Executed <span class="number">2</span> <span class="keyword">of</span> <span class="number">2</span> (<span class="number">1</span> FAILED) (<span class="number">0.014</span> <span class="built_in">secs</span> / <span class="number">0.002</span> <span class="built_in">secs</span>)</div></pre></td></tr></table></figure></p>
+<p>测试失败了！显然Karma检测到文件有改动后自动又运行了一次，当我们把代码改回来之后karma又会执行一次。这就是karma的魅力所在。</p>
+<h4 id="接入Travis-CI"><a href="#接入Travis-CI" class="headerlink" title="接入Travis CI"></a>接入Travis CI</h4><p>Travis CI是配合github使用的，因此我们首先需要将刚才的代码放上github。然后进入<a href="https://travis-ci.org/" target="_blank" rel="external">Travis CI</a>的官网（可能需要科学上网）并用你的github账户登录。接着根据官网上的提示操作，也就是这个：</p>
+<p><img src="/images/travis.JPG" alt="image"></p>
+<p>先选择需要接入的仓库（也就是我们刚上传的那个）然后在根目录添加<code>.travis.yml</code>文件。完成之后每当我们像github push一次代码，Travis CI就会默默地帮我们测试并在他的网站上给出结果。</p>
+<p>显然这里的重点就是<code>.travis.yml</code>这个配置文件。我们可以在这个文件里面设置很多东西，不过这里只会用最简单的情况来介绍一下。更多设置还请到官网慢慢查看。</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="attr">language:</span> <span class="string">node_js</span></div><div class="line"><span class="attr">node_js:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">"lts/*"</span></div><div class="line"><span class="attr">script:</span> <span class="string">node_modules/karma/bin/karma</span> <span class="string">start</span> <span class="string">karma.conf.js</span> <span class="bullet">--single-run</span> </div><div class="line"><span class="attr">before_install:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">export</span> <span class="string">CHROME_BIN=chromium-browser</span></div><div class="line"><span class="bullet">  -</span> <span class="string">export</span> <span class="string">DISPLAY=:99.0</span></div><div class="line"><span class="bullet">  -</span> <span class="string">sh</span> <span class="bullet">-e</span> <span class="string">/etc/init.d/xvfb</span> <span class="string">start</span></div></pre></td></tr></table></figure>
+<p>解释一下：</p>
+<ul>
+<li>language自然是用来告诉travis我们是node.js</li>
+<li>node_js是指明我们的node版本，这里是所有lts版本</li>
+<li>script就是知名需要执行的脚本，这里就是执行karma。一般karma是会一直执行的，显然在travis中我们不需要这样，因此加上–single-run 修饰</li>
+<li>before_install，这里涉及了一个浏览器的坑，下面详细说说。</li>
+</ul>
+<p>我们知道karma会自动打开一个chrome（或者其他指定浏览器），因此我们需要告诉travis我们需要打开浏览器，并且由于travis默认不是用chrome的，我们还需要针对chrome分别在 <code>.travis.yml</code>和<code>karma.config.js</code>做一些修改。</p>
+<p><code>.travis.yml</code>的修改已经在上面展示过了，下面说一下<code>karma.config.js</code>的改动。</p>
+<p>我们需要在配置里面加上这个：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// karma.config.js</span></div><div class="line"><span class="attribute">customLaunchers</span>: &#123;</div><div class="line">  <span class="attribute">Chrome_travis_ci</span>: &#123;</div><div class="line">    <span class="attribute">base</span>: <span class="string">'Chrome'</span>,</div><div class="line">    <span class="attribute">flags</span>: [<span class="string">'--no-sandbox'</span>]</div><div class="line">  &#125;</div><div class="line">&#125;,</div></pre></td></tr></table></figure></p>
+<p>其次为了让我们的配置文件既适用于travis也适用于本地，我们需要对环境变量做个判断：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// karma.config.js</span></div><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">config</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> configuration = &#123;</div><div class="line">    <span class="comment">// 原来的各种配置 </span></div><div class="line">  &#125;</div><div class="line">  <span class="keyword">if</span>(process.env.TRAVIS)&#123;</div><div class="line">    <span class="comment">// 做一个判断</span></div><div class="line">    configuration.browsers = [<span class="string">'Chrome_travis_ci'</span>];</div><div class="line">  &#125;</div><div class="line">  config.set(configuration)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>修改完成之后将代码push到github，此时回到travis CI的网站，我们应该会看到travis正在测试我们的代码（可能需要等几分钟travis才会响应到我们刚才的push）。</p>
+<p>测试完成之后，如果最下面出现<code>Done. Your build exited with 0.</code>并且仓库名字隔壁的图标变成这个：<img src="https://travis-ci.org/weibinzhu/testExample.svg?branch=master" alt="image">，证明测试通过了。</p>
+<h3 id="最后说几句"><a href="#最后说几句" class="headerlink" title="最后说几句"></a>最后说几句</h3><p>这只是最最基本的一个入门，显然这里面还有很多东西需要深究。除了官网外我还有几个链接分享给大家：</p>
+<p><a href="https://docs.travis-ci.com/user/gui-and-headless-browsers/" target="_blank" rel="external">这是travis官网上有关浏览器的文章</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2015/12/a-mocha-tutorial-of-examples.html" target="_blank" rel="external">阮一峰大大关于mocha的教程</a></p>
+<p><a href="https://cnodejs.org/topic/516526766d38277306c7d277" target="_blank" rel="external">另一篇关于mocha教程</a></p>
+<p><a href="https://github.com/weibinzhu/testExample" target="_blank" rel="external">本文用到的那个例子我放在了这个仓库中</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Javascript/" rel="tag"># Javascript</a>
+          
+            <a href="/tags/测试/" rel="tag"># 测试</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/8541ccde/" rel="next" title="谈谈JS中的大数运算">
+                <i class="fa fa-chevron-left"></i> 谈谈JS中的大数运算
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTkwMS82NDY2"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Fatbin37" />
+          <p class="site-author-name" itemprop="name">Fatbin37</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/weibinzhu" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/fatbin37" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#他们是什么？"><span class="nav-number">1.</span> <span class="nav-text">他们是什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#should-js"><span class="nav-number">1.1.</span> <span class="nav-text">should.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mocha"><span class="nav-number">1.2.</span> <span class="nav-text">Mocha</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Karma"><span class="nav-number">1.3.</span> <span class="nav-text">Karma</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Travis-CI"><span class="nav-number">1.4.</span> <span class="nav-text">Travis CI</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么用？"><span class="nav-number">2.</span> <span class="nav-text">怎么用？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#准备"><span class="nav-number">2.1.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编写测试代码"><span class="nav-number">2.2.</span> <span class="nav-text">编写测试代码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写待测试的脚本"><span class="nav-number">3.</span> <span class="nav-text">编写待测试的脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#加上Karma"><span class="nav-number">3.1.</span> <span class="nav-text">加上Karma</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接入Travis-CI"><span class="nav-number">3.2.</span> <span class="nav-text">接入Travis CI</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后说几句"><span class="nav-number">4.</span> <span class="nav-text">最后说几句</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fatbin37</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/three.min.js"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("s1THMlOoRJLLOKQvFyvf9MMP-gzGzoHsz", "gfs4qJWJ8EOubt4h3jw9L5Xq");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
