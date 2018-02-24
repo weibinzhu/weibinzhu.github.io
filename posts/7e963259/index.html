@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CSS," />
+  <meta name="keywords" content="Javascript," />
 
 
 
@@ -93,21 +93,21 @@
 
 
 
-<meta name="description" content="之前面试的时候被问到移动端适配用什么单位，答不出来，遂搜集了一些资料总结成这篇文章。水平有限，虽然已经尽可能地保证不出错，但难免有这样或那样的漏洞，如果你发现任何问题，请给我留言。感恩。 什么是rem？一般来说我们听到更多的是em，而rem则是root em的意思。顾名思义，rem是指相对于根元素字体大小的单位，而这个根元素，一般指的就是html。例如，若html的font size为16px,">
-<meta name="keywords" content="CSS">
+<meta name="description" content="设计模式能帮组我们解决很多软件设计上常见的问题。下面介绍两种Javascript中常用的设计模式，他们十分类似但也有不同。注意，设计模式并不限于某种语言。 观察者模式在这个模式中，有一个叫目标的东西，它维护这一个依赖于它的观察者列表，当特定的事情发生时，目标会通知在它的观察者列表中的所有观察者。如果某个观察者想接收某个目标的通知，该目标就讲这个观察者添加到自己的观察者列表，如果不再想接收该目标的通">
+<meta name="keywords" content="Javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用rem进行移动端适配">
-<meta property="og:url" content="https://weibinzhu.github.io/posts/e6ac1031/index.html">
+<meta property="og:title" content="Javascript设计模式简介">
+<meta property="og:url" content="https://weibinzhu.github.io/posts/7e963259/index.html">
 <meta property="og:site_name" content="前端脚印">
-<meta property="og:description" content="之前面试的时候被问到移动端适配用什么单位，答不出来，遂搜集了一些资料总结成这篇文章。水平有限，虽然已经尽可能地保证不出错，但难免有这样或那样的漏洞，如果你发现任何问题，请给我留言。感恩。 什么是rem？一般来说我们听到更多的是em，而rem则是root em的意思。顾名思义，rem是指相对于根元素字体大小的单位，而这个根元素，一般指的就是html。例如，若html的font size为16px,">
+<meta property="og:description" content="设计模式能帮组我们解决很多软件设计上常见的问题。下面介绍两种Javascript中常用的设计模式，他们十分类似但也有不同。注意，设计模式并不限于某种语言。 观察者模式在这个模式中，有一个叫目标的东西，它维护这一个依赖于它的观察者列表，当特定的事情发生时，目标会通知在它的观察者列表中的所有观察者。如果某个观察者想接收某个目标的通知，该目标就讲这个观察者添加到自己的观察者列表，如果不再想接收该目标的通">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://weibinzhu.github.io/images/btn-example.JPG">
-<meta property="og:image" content="https://weibinzhu.github.io/images/btn-example-large.JPG">
-<meta property="og:updated_time" content="2018-02-08T03:08:02.832Z">
+<meta property="og:image" content="https://github.com/weibinzhu/markdownPhoto/blob/master/notePhoto/observer.png?raw=true">
+<meta property="og:image" content="https://github.com/weibinzhu/markdownPhoto/blob/master/notePhoto/publish.png?raw=true">
+<meta property="og:updated_time" content="2018-02-24T14:58:14.621Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用rem进行移动端适配">
-<meta name="twitter:description" content="之前面试的时候被问到移动端适配用什么单位，答不出来，遂搜集了一些资料总结成这篇文章。水平有限，虽然已经尽可能地保证不出错，但难免有这样或那样的漏洞，如果你发现任何问题，请给我留言。感恩。 什么是rem？一般来说我们听到更多的是em，而rem则是root em的意思。顾名思义，rem是指相对于根元素字体大小的单位，而这个根元素，一般指的就是html。例如，若html的font size为16px,">
-<meta name="twitter:image" content="https://weibinzhu.github.io/images/btn-example.JPG">
+<meta name="twitter:title" content="Javascript设计模式简介">
+<meta name="twitter:description" content="设计模式能帮组我们解决很多软件设计上常见的问题。下面介绍两种Javascript中常用的设计模式，他们十分类似但也有不同。注意，设计模式并不限于某种语言。 观察者模式在这个模式中，有一个叫目标的东西，它维护这一个依赖于它的观察者列表，当特定的事情发生时，目标会通知在它的观察者列表中的所有观察者。如果某个观察者想接收某个目标的通知，该目标就讲这个观察者添加到自己的观察者列表，如果不再想接收该目标的通">
+<meta name="twitter:image" content="https://github.com/weibinzhu/markdownPhoto/blob/master/notePhoto/observer.png?raw=true">
 
 
 
@@ -135,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="https://weibinzhu.github.io/posts/e6ac1031/"/>
+  <link rel="canonical" href="https://weibinzhu.github.io/posts/7e963259/"/>
 
 
 
 
 
-  <title>利用rem进行移动端适配 | 前端脚印</title>
+  <title>Javascript设计模式简介 | 前端脚印</title>
   
 
 
@@ -284,7 +284,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://weibinzhu.github.io/posts/e6ac1031/">
+    <link itemprop="mainEntityOfPage" href="https://weibinzhu.github.io/posts/7e963259/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Fatbin37">
@@ -301,7 +301,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">利用rem进行移动端适配</h1>
+          <h1 class="post-title" itemprop="name headline">Javascript设计模式简介</h1>
         
 
         <div class="post-meta">
@@ -313,8 +313,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-01T23:04:39+08:00">
-                2017-08-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-24T22:53:00+08:00">
+                2018-02-24
               </time>
             
 
@@ -331,7 +331,7 @@
 
           
           
-             <span id="/posts/e6ac1031/" class="leancloud_visitors" data-flag-title="利用rem进行移动端适配">
+             <span id="/posts/7e963259/" class="leancloud_visitors" data-flag-title="Javascript设计模式简介">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -359,40 +359,97 @@
       
 
       
-        <p>之前面试的时候被问到移动端适配用什么单位，答不出来，遂搜集了一些资料总结成这篇文章。水平有限，虽然已经尽可能地保证不出错，但难免有这样或那样的漏洞，如果你发现任何问题，请给我留言。感恩。</p>
-<h3 id="什么是rem？"><a href="#什么是rem？" class="headerlink" title="什么是rem？"></a>什么是rem？</h3><p>一般来说我们听到更多的是em，而rem则是root em的意思。顾名思义，rem是指相对于根元素字体大小的单位，而这个根元素，一般指的就是html。例如，若html的font size为16px, 则1rem=16px。</p>
-<h3 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h3><p>目前PC端的Chrome（4+），Firefox（3.6+），Safari（5+），以及IE（11+）均支持rem，移动端的主流浏览器，包括UC，QQ浏览器，三星内置浏览器也都支持rem。可以说只要不用支持古老的浏览器，如IE8、初代iPhone的Safari，都可以放心地使用rem。</p>
-<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>在说rem的优点之前我们先来回顾一下移动端适配的一般做法。</p>
+        <p>设计模式能帮组我们解决很多软件设计上常见的问题。下面介绍两种Javascript中常用的设计模式，他们十分类似但也有不同。<strong>注意，设计模式并不限于某种语言。</strong></p>
+<h2 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h2><p>在这个模式中，有一个叫目标的东西，它维护这一个依赖于它的观察者列表，当特定的事情发生时，目标会通知在它的观察者列表中的所有观察者。如果某个观察者想接收某个目标的通知，该目标就讲这个观察者添加到自己的观察者列表，如果不再想接收该目标的通知，该目标就可以从自己的观察者列表中移除这个通知。下面展示一个示意图：</p>
+<p><img src="https://github.com/weibinzhu/markdownPhoto/blob/master/notePhoto/observer.png?raw=true" alt="image"></p>
+<p>解释一下里面的名词：</p>
 <ol>
-<li>流式布局，宽度使用百分比定义，高度和文字大小用px固定。缺点是不同屏幕尺寸下显示效果会有差异，在大屏幕手机下甚至会因为元素宽度被过度拉伸导致显示效果不协调。因此仅适用于一些比较简单的页面。</li>
-<li>固定宽度，给页面设置固定宽度，超出部分留白。很明显，这种粗暴的方法对大屏手机很不友好。</li>
-<li>弹性盒子布局。</li>
-<li>响应式布局，其实就是针对几个主流设置对应的CSS，再利用媒体查询（Media Queries）来确定需要显示的样式。当然这样要求我们写额外的样式，提高了工作量，同时由于不可能为所有屏幕尺寸写针对性的样式，因此只能在若干主流的屏幕尺寸下做到完美显示。</li>
+<li>Subject-目标<ul>
+<li>具体目标的基类</li>
+<li>维护一个观察者列表</li>
+<li>维护一些用于添加、删除、通知观察者的方法</li>
+</ul>
+</li>
+<li>Observer-观察者<ul>
+<li>具体观察者的基类</li>
+<li>提供更新接口，供目标调用</li>
+</ul>
+</li>
+<li>ConcreteSubject-具体目标<ul>
+<li>继承目标类</li>
+<li>当状态改变时通知自己的观察者（即调度观察者的更新方法）</li>
+</ul>
+</li>
+<li>ConcreteObserver-具体观察者<ul>
+<li>继承观察者类</li>
+<li>把自己注册到具体目标中</li>
+<li>实现自己的更新接口（更新方法）</li>
+</ul>
+</li>
 </ol>
-<p>我们发现这些方法要么不能在不同设备上完美显示，要么就是过于复杂，而rem却能很好的兼顾简单和兼容性。</p>
-<p>之前提到rem是相对于根元素字体大小的单位，如果根元素的font size是16px，那么1rem就是16px，如果根元素是37.5px，那么1rem就是37.5px。可见，如果页面元素都用rem来设置大小，那么我们只需要修改根元素的font size就能等比例地缩放整个页面。也就是说只要根据不同屏幕尺寸设置根元素font size，我们就能等比例适配所有屏幕，是不是很优雅？</p>
-<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>说了那么多我们来看看究竟要怎么使用吧。先看一个例子。</p>
-<p><a href="https://codepen.io/weibinzhu/pen/BdKexp" target="_blank" rel="external">Demo</a><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn"</span>&gt;</span>button<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">html</span>&#123;</div><div class="line">  <span class="attribute">font-size</span>:<span class="number">40px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.btn</span>&#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">2rem</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">0.5rem</span>;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">0.5rem</span>;</div><div class="line">  <span class="attribute">line-height</span>: <span class="number">0.5rem</span>;</div><div class="line">  <span class="attribute">text-align</span>:center;</div><div class="line">  <span class="attribute">background-color</span>:red;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><img src="/images/btn-example.JPG" alt="image"></p>
-<p>例子中div的单位都是rem，留意宽高，可以看到宽高分别是80px和10px，而这正分别等于 2*40px和0.5*40px。这表明宽高是通过根元素html的font-size计算出来的，此时1rem=40px。</p>
-<p>此时我们把html的font-size修改成原来的两倍即80px，其他不作改动，结果如下图所示。<br><img src="/images/btn-example-large.JPG" alt="image"><br>显然div的宽高也变成了原来的两倍，此时1rem=80px。这也印证了之前所说的只需通过修改根元素的font-size值就可以等比例缩放。</p>
-<p>相信到这里大家也发现，每次设置rem都要换算一遍，非常麻烦。为了方便我们可以：</p>
+<p><a href="https://addyosmani.com/resources/essentialjsdesignpatterns/book/#observerpatternjavascript" target="_blank" rel="external">这本书中</a>讲到了一个例子，我觉得很好的展示了观察者模式，下面主要讲讲这个例子：</p>
+<p>这个例子大概就是，有一个按钮用于添加checkbox，有一个container用于装添加的checkbox，有一个checkbox（旧checkbox）用来控制其他新添加checkbox的状态。</p>
+<p>新添加的checkbox们就是具体观察者，他们的更新接口（方法）就是一个update函数，函数所做的事就是将具体观察者们的checked属性置为跟旧checkbox的一样。</p>
+<p>旧checkbox就是具体目标，点击它会修改自己的checked属性（默认行为），同时会notify他的具体观察者，即调用他们的更新接口</p>
+<p>点击按钮就会创建一个新的checkbox并添加到container内，同时会调用具体目标的添加观察者方法</p>
+<p>步骤如下：</p>
 <ol>
-<li>将根元素的font-size设置成100px，这样只需要将px的数字的小数点往前挪两位再把单位换成rem就可以了，例如160px换成rem就是1.6rem。</li>
-<li>利用sass，less等css预处理语言，设置一个函数专门用于单位转换。由于各种语言实现有区别，这里就不给出例子了。</li>
-<li>利用现成的转换工具，这里推荐一个在线转换工具: <a href="http://520ued.com/tools/rem" target="_blank" rel="external">px–&gt;rem</a></li>
+<li>首先有一个观察者列表的类，方便目标维护一个观察者列表</li>
+<li>构建目标类，主要就是添加一些用于添加、删除、通知观察者（即调用观察者更新接口）的方法</li>
+<li>构建观察者类，实现一个默认更新接口，这个接口可以被具体观察者的实现覆盖</li>
+<li>写html</li>
+<li>获取dom</li>
+<li>创建具体目标：旧checkbox的dom对象继承目标类</li>
+<li>给具体目标添加点击事件，点击的时候调用具体目标的notify方法</li>
+<li>给按钮添加点击事件，点击的时候新建一个checkbox的dom对象，给对象继承观察者类（构建具体观察者），实现具体观察者的update方法，调用具体目标的添加方法，将具体观察者添加进去，将新checkbox dom对象添加到container</li>
+<li>在这个例子中首先定义了一个ObserverList类，用于维护一个观察者列表。</li>
 </ol>
-<p><strong>这篇文章的主题是移动端适配，现在就具体讲讲在实际运用中如何用rem适配不同大小的屏幕</strong></p>
-<p>一般来说我们拿到的设计稿都是以iphone6的屏幕为基准设计的，也就是说宽度为375px，假设我们把根元素的font-size设置为100px。如果我们要适配的屏幕宽度为320px（即iphone5的屏幕宽度），那么此时根元素font-size应该设置为：100*（320/375），即85.3px。通过这样设置我们的页面便能完美等比例适配320px的屏幕。</p>
-<p><strong>为了计算方便，也为了避免根元素的font-size太大</strong>我们一般把根元素font-size设置为屏幕宽度的1/10（即375px的屏幕就设置为37.5px，320px的屏幕就设置为32px）。这样我们无需经过计算就能直接根据需要适配的屏幕宽度来得出font-size的大小，同时也能避免根元素font-size太大。</p>
-<p><strong>现在问题来了</strong>，<del>学挖掘机哪家强</del> 究竟怎么动态修改font-size呢？有一个简单粗暴地方法，既然主流的屏幕分辨率也就那几个，我们大可以通过media query媒体查询，把最常见的几种情况写下来。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">html</span> &#123;</div><div class="line">    <span class="attribute">font-size </span>: <span class="number">37.5px</span>;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">media</span> only screen and (min-width: <span class="number">320px</span>)&#123;</div><div class="line">    <span class="selector-tag">html</span> &#123;</div><div class="line">        <span class="attribute">font-size</span>: <span class="number">32px</span> <span class="meta">!important</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">media</span> only screen and (min-width: <span class="number">414px</span>)&#123;</div><div class="line">    <span class="selector-tag">html</span> &#123;</div><div class="line">        <span class="attribute">font-size</span>: <span class="number">41.4px</span> <span class="meta">!important</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这样基本能覆盖大部分设备了，如果说一定要适配所有设备，我们还可以通过JS动态计算font-size。<a href="https://m.taobao.com/#index" target="_blank" rel="external">淘宝</a>的首页就是用这个方法，审查元素之后可以看到不断改变屏幕大小，html的font-size都能实时变化。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.getElementsByTagName(<span class="string">'html'</span>)[<span class="number">0</span>].style.fontSize = <span class="built_in">window</span>.innerWidth / <span class="number">10</span> + <span class="string">'px'</span>;</div></pre></td></tr></table></figure></p>
-<p>我们把上面的代码绑定到DOMContentLoaded时间中，这样在进入页面的时候就能马上计算出font-size。</p>
-<p>参考资料：</p>
-<p><a href="http://www.alloyteam.com/2016/03/mobile-web-adaptation-tool-rem/" target="_blank" rel="external">http://www.alloyteam.com/2016/03/mobile-web-adaptation-tool-rem/</a>  </p>
-<p><a href="http://caibaojian.com/toutiao/6215" target="_blank" rel="external">http://caibaojian.com/toutiao/6215</a></p>
-<p><a href="https://isux.tencent.com/web-app-rem.html" target="_blank" rel="external">https://isux.tencent.com/web-app-rem.html</a></p>
+<blockquote>
+<p><strong>为什么观察者模式里面要额外维护一个观察者列表？</strong></p>
+<ul>
+<li>答：实际开发中一般在观察者列表和目标之间会有一个中间层负责调度，例如控制一下谁能够添加到观察者列表中，可以做权限管理和控制</li>
+<li>而观察者列表可以做得十分通用，十分简单</li>
+</ul>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ObserverList</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.observerList = [];</div><div class="line">&#125;</div><div class="line"> </div><div class="line">ObserverList.prototype.add = <span class="function"><span class="keyword">function</span>(<span class="params"> obj </span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.observerList.push( obj );</div><div class="line">&#125;;</div><div class="line"> </div><div class="line">ObserverList.prototype.count = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.observerList.length;</div><div class="line">&#125;;</div><div class="line"> </div><div class="line">ObserverList.prototype.get = <span class="function"><span class="keyword">function</span>(<span class="params"> index </span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span>( index &gt; <span class="number">-1</span> &amp;&amp; index &lt; <span class="keyword">this</span>.observerList.length )&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.observerList[ index ];</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"> </div><div class="line">ObserverList.prototype.indexOf = <span class="function"><span class="keyword">function</span>(<span class="params"> obj, startIndex </span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> i = startIndex;</div><div class="line"> </div><div class="line">  <span class="keyword">while</span>( i &lt; <span class="keyword">this</span>.observerList.length )&#123;</div><div class="line">    <span class="keyword">if</span>( <span class="keyword">this</span>.observerList[i] === obj )&#123;</div><div class="line">      <span class="keyword">return</span> i;</div><div class="line">    &#125;</div><div class="line">    i++;</div><div class="line">  &#125;</div><div class="line"> </div><div class="line">  <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">&#125;;</div><div class="line"> </div><div class="line">ObserverList.prototype.removeAt = <span class="function"><span class="keyword">function</span>(<span class="params"> index </span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.observerList.splice( index, <span class="number">1</span> );</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>可以思考一下为什么要有get、indexOf等貌似多次一举的方法，为什么不直接用数组方法？</p>
+<ul>
+<li>答：因为有可能不是一个数组，这时候是没法直接用下标或者别的什么方式获取的。通过实现get接口，使用者可以完全不需要关心内部实现，不需要知道内部是数组还是对象什么的。其实这就是一个高内聚的特点，就是一个彻底地封装</li>
+</ul>
+</blockquote>
+<p>接着我们定义一个目标（subject）类，里面维护一个刚刚定义的ObserverList的实例<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Subject</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.observers = <span class="keyword">new</span> ObserverList();</div><div class="line">&#125;</div><div class="line"> </div><div class="line">Subject.prototype.addObserver = <span class="function"><span class="keyword">function</span>(<span class="params"> observer </span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.observers.add( observer );</div><div class="line">&#125;;</div><div class="line"> </div><div class="line">Subject.prototype.removeObserver = <span class="function"><span class="keyword">function</span>(<span class="params"> observer </span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.observers.removeAt( <span class="keyword">this</span>.observers.indexOf( observer, <span class="number">0</span> ) );</div><div class="line">&#125;;</div><div class="line"> </div><div class="line">Subject.prototype.notify = <span class="function"><span class="keyword">function</span>(<span class="params"> context </span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> observerCount = <span class="keyword">this</span>.observers.count();</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; observerCount; i++)&#123;</div><div class="line">    <span class="keyword">this</span>.observers.get(i).update( context );</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>可以看到目标类的作用主要就是三个：</p>
+<ol>
+<li>添加观察者</li>
+<li>移除观察者</li>
+<li>通知观察者（即调用观察者列表里面所有观察者的更新（update）方法</li>
+</ol>
+<p>接下来定义观察者类，注意这只是一个框架，里面的update方法可以在后来被覆盖。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// The Observer</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Observer</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.update = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">  &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>三个类写好之后，下面我们来看看如何使用。首先我们的html是这样的：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"observerContainer"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"subjectCheckbox"</span> <span class="attr">class</span>=<span class="string">"subjectCheckbox"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"addObserverBtn"</span>&gt;</span>click here to add a observer<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>然后是我们的js代码,我们额外定义了一个extend函数方便我们合并实例：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">extend</span>(<span class="params">target, extension</span>)</span>&#123;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> extension)&#123;</div><div class="line">		target[key] = extension[key];</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> addBtn = <span class="built_in">document</span>.querySelector(<span class="string">".addObserverBtn"</span>),</div><div class="line">	container = <span class="built_in">document</span>.querySelector(<span class="string">".observerContainer"</span>),</div><div class="line">	mainCheckbox= <span class="built_in">document</span>.querySelector(<span class="string">".subjectCheckbox"</span>);</div><div class="line"></div><div class="line">extend(mainCheckbox, <span class="keyword">new</span> Subject());</div><div class="line"></div><div class="line">mainCheckbox.addEventListener(<span class="string">"click"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	mainCheckbox.notify(mainCheckbox.checked);</div><div class="line">&#125;)</div><div class="line">addBtn.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">let</span> checkbox = <span class="built_in">document</span>.createElement(<span class="string">"input"</span>);</div><div class="line">	checkbox.type = <span class="string">"checkbox"</span>;</div><div class="line"></div><div class="line">	extend(checkbox, <span class="keyword">new</span> Observer());</div><div class="line"></div><div class="line">	checkbox.update = <span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</div><div class="line">		<span class="keyword">this</span>.checked = value;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	mainCheckbox.addObserver(checkbox);</div><div class="line">	container.appendChild(checkbox);</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>subjectCheckbox是我们的具体目标，点击subjectCheckbox会改变自己的checked属性，同时会调用具体目标的通知方法，即调用调用具体目标的观察者列表中的所有观察者的update方法，并把checked属性的值作为参数传进去。</p>
+<p>而在这里checkbox就是我们的具体观察者，他的update方法就是根据传进来的参数修改自己的checked属性。</p>
+<p>点击addBtn会创建一个checkbox，并调用具体目标的添加观察者方法将checkbox添加进具体目标的观察者列表里。</p>
+<p>在这个例子中我们没有使用移除观察者的方法。</p>
+<h2 id="发布-订阅模式（Publish-Subscribe-Pattern）"><a href="#发布-订阅模式（Publish-Subscribe-Pattern）" class="headerlink" title="发布/订阅模式（Publish/Subscribe Pattern）"></a>发布/订阅模式（Publish/Subscribe Pattern）</h2><p><img src="https://github.com/weibinzhu/markdownPhoto/blob/master/notePhoto/publish.png?raw=true" alt="image"></p>
+<p>比较概念的解释是，订阅者把自己想订阅的事件注册到调度中心，当该事件触发时候，发布者发布该事件到调度中心（顺带上下文），由调度中心统一调度订阅者注册到调度中心的处理代码。</p>
+<p>我的理解中，其实比较类似js中的事件。在js中引擎就是调度中心，我们给某个对象添加事件就是将事件处理程序注册到调度中心，这里对象就是订阅者。事件发生的时候其实就是发起事件者给调度中心发布，这里的发起事件者就是发布者。调度中心指导之后就统一掉用注册到调度各个事件处理程序。</p>
+<p>在这个过程中发布者不需要直达订阅者是谁、长什么样，订阅者也不需要指导发布者是谁、长什么样。这就是发布/订阅模式的特点：</p>
+<h3 id="与观察者模式的区别"><a href="#与观察者模式的区别" class="headerlink" title="与观察者模式的区别"></a>与观察者模式的区别</h3><p>两者最大的区别就是调度方式，</p>
+<p>虽然两种模式都存在订阅者和发布者（具体观察者可认为是订阅者、具体目标可认为是发布者），但是观察者模式是由具体目标调度的，而发布/订阅模式是统一由调度中心调的，所以观察者模式的订阅者与发布者之间是存在依赖的，而发布/订阅模式则不会。</p>
+<p>这里引用一篇关于二者区别的文章的内容，摘自<a href="https://addyosmani.com/resources/essentialjsdesignpatterns/book/#observerpatternjavascript" target="_blank" rel="external">这本书</a></p>
+<blockquote>
+<p>The Observer pattern requires that the observer (or object) wishing to receive topic notifications must subscribe this interest to the object firing the event (the subject).</p>
+<p>The Publish/Subscribe pattern however uses a topic/event channel which sits between the objects wishing to receive notifications (subscribers) and the object firing the event (the publisher). This event system allows code to define application specific events which can pass custom arguments containing values needed by the subscriber. The idea here is to avoid dependencies between the subscriber and publisher.</p>
+<p>This differs from the Observer pattern as it allows any subscriber implementing an appropriate event handler to register for and receive topic notifications broadcast by the publisher.</p>
+</blockquote>
+<p>这文章里面有一个描述发布/订阅模式的例子，可以参考一下。注意里面的publish、subscribe、unsubscribe方法的实习都没有写出来。</p>
+<p>这个例子很好的体现出发布/订阅模式的优点：允许订阅者实现一个特定的适合于自己的事件处理函数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// A very simple new mail handler</span></div><div class="line"> </div><div class="line"><span class="comment">// A count of the number of messages received</span></div><div class="line"><span class="keyword">var</span> mailCounter = <span class="number">0</span>;</div><div class="line"> </div><div class="line"><span class="comment">// Initialize subscribers that will listen out for a topic</span></div><div class="line"><span class="comment">// with the name "inbox/newMessage".</span></div><div class="line"> </div><div class="line"><span class="comment">// Render a preview of new messages</span></div><div class="line"><span class="keyword">var</span> subscriber1 = subscribe( <span class="string">"inbox/newMessage"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"> topic, data </span>) </span>&#123;</div><div class="line"> </div><div class="line">  <span class="comment">// Log the topic for debugging purposes</span></div><div class="line">  <span class="built_in">console</span>.log( <span class="string">"A new message was received: "</span>, topic );</div><div class="line"> </div><div class="line">  <span class="comment">// Use the data that was passed from our subject</span></div><div class="line">  <span class="comment">// to display a message preview to the user</span></div><div class="line">  $( <span class="string">".messageSender"</span> ).html( data.sender );</div><div class="line">  $( <span class="string">".messagePreview"</span> ).html( data.body );</div><div class="line"> </div><div class="line">&#125;);</div><div class="line"> </div><div class="line"><span class="comment">// Here's another subscriber using the same data to perform</span></div><div class="line"><span class="comment">// a different task.</span></div><div class="line"> </div><div class="line"><span class="comment">// Update the counter displaying the number of new</span></div><div class="line"><span class="comment">// messages received via the publisher</span></div><div class="line"> </div><div class="line"><span class="keyword">var</span> subscriber2 = subscribe( <span class="string">"inbox/newMessage"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"> topic, data </span>) </span>&#123;</div><div class="line"> </div><div class="line">  $(<span class="string">'.newMessageCounter'</span>).html( ++mailCounter );</div><div class="line"> </div><div class="line">&#125;);</div><div class="line"> </div><div class="line">publish( <span class="string">"inbox/newMessage"</span>, [&#123;</div><div class="line">  sender: <span class="string">"hello@google.com"</span>,</div><div class="line">  body: <span class="string">"Hey there! How are you doing today?"</span></div><div class="line">&#125;]);</div><div class="line"> </div><div class="line"><span class="comment">// We could then at a later point unsubscribe our subscribers</span></div><div class="line"><span class="comment">// from receiving any new topic notifications as follows:</span></div><div class="line"><span class="comment">// unsubscribe( subscriber1 );</span></div><div class="line"><span class="comment">// unsubscribe( subscriber2 );</span></div></pre></td></tr></table></figure></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://addyosmani.com/resources/essentialjsdesignpatterns/book/#observerpatternjavascript" target="_blank" rel="external">Learning JavaScript Design Patterns</a></li>
+<li><a href="https://www.cnblogs.com/lovesong/p/5272752.html" target="_blank" rel="external">设计模式（三）：观察者模式与发布/订阅模式区别</a></li>
+</ul>
 
       
     </div>
@@ -422,7 +479,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CSS/" rel="tag"># CSS</a>
+            <a href="/tags/Javascript/" rel="tag"># Javascript</a>
           
         </div>
       
@@ -435,8 +492,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/b1d4025b/" rel="next" title="hello-world">
-                <i class="fa fa-chevron-left"></i> hello-world
+              <a href="/posts/f489ed5e/" rel="next" title="跨域解决方案汇总">
+                <i class="fa fa-chevron-left"></i> 跨域解决方案汇总
               </a>
             
           </div>
@@ -444,10 +501,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/posts/64378108/" rel="prev" title="30分钟入门正则表达式">
-                30分钟入门正则表达式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -628,7 +681,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是rem？"><span class="nav-number">1.</span> <span class="nav-text">什么是rem？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#兼容性"><span class="nav-number">2.</span> <span class="nav-text">兼容性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">3.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用法"><span class="nav-number">4.</span> <span class="nav-text">用法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#观察者模式"><span class="nav-number">1.</span> <span class="nav-text">观察者模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发布-订阅模式（Publish-Subscribe-Pattern）"><span class="nav-number">2.</span> <span class="nav-text">发布/订阅模式（Publish/Subscribe Pattern）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#与观察者模式的区别"><span class="nav-number">2.1.</span> <span class="nav-text">与观察者模式的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
