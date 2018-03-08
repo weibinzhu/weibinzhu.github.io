@@ -93,18 +93,18 @@
 
 
 
-<meta name="description" content="简单版void是一个一元操作符，根据MDN的说法  The void operator evaluates the given expression and then returns undefined. void操作符会对给定表达式求值，然后返回undefined  也就是说无论表达式是什么，void都会返回一个undefined：12345678void &apos;a&apos; // undefinedvoi">
+<meta name="description" content="webpack是用来做什么的就不赘述了，我们直接进入主题吧。 webpack中的核心概念webpack中有四个核心概念：  Entry  给webpack指定入口文件，webpack会从入口文件出发，处理各种依赖，最终打包出叫bundles的东西 可以指定一个文件，也可以指定多个 entry的值可以是一个字符串，一个数组，一个对象 值是一个字符串时，字符串就是那个入口文件的路径 123module">
 <meta name="keywords" content="Javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="谈谈Javascript中的void">
-<meta property="og:url" content="https://weibinzhu.github.io/posts/dddf7511/index.html">
+<meta property="og:title" content="webpack(一)">
+<meta property="og:url" content="https://weibinzhu.github.io/posts/f1c99717/index.html">
 <meta property="og:site_name" content="前端脚印">
-<meta property="og:description" content="简单版void是一个一元操作符，根据MDN的说法  The void operator evaluates the given expression and then returns undefined. void操作符会对给定表达式求值，然后返回undefined  也就是说无论表达式是什么，void都会返回一个undefined：12345678void &apos;a&apos; // undefinedvoi">
+<meta property="og:description" content="webpack是用来做什么的就不赘述了，我们直接进入主题吧。 webpack中的核心概念webpack中有四个核心概念：  Entry  给webpack指定入口文件，webpack会从入口文件出发，处理各种依赖，最终打包出叫bundles的东西 可以指定一个文件，也可以指定多个 entry的值可以是一个字符串，一个数组，一个对象 值是一个字符串时，字符串就是那个入口文件的路径 123module">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-08T03:08:02.833Z">
+<meta property="og:updated_time" content="2018-03-08T15:27:45.921Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="谈谈Javascript中的void">
-<meta name="twitter:description" content="简单版void是一个一元操作符，根据MDN的说法  The void operator evaluates the given expression and then returns undefined. void操作符会对给定表达式求值，然后返回undefined  也就是说无论表达式是什么，void都会返回一个undefined：12345678void &apos;a&apos; // undefinedvoi">
+<meta name="twitter:title" content="webpack(一)">
+<meta name="twitter:description" content="webpack是用来做什么的就不赘述了，我们直接进入主题吧。 webpack中的核心概念webpack中有四个核心概念：  Entry  给webpack指定入口文件，webpack会从入口文件出发，处理各种依赖，最终打包出叫bundles的东西 可以指定一个文件，也可以指定多个 entry的值可以是一个字符串，一个数组，一个对象 值是一个字符串时，字符串就是那个入口文件的路径 123module">
 
 
 
@@ -132,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="https://weibinzhu.github.io/posts/dddf7511/"/>
+  <link rel="canonical" href="https://weibinzhu.github.io/posts/f1c99717/"/>
 
 
 
 
 
-  <title>谈谈Javascript中的void | 前端脚印</title>
+  <title>webpack(一) | 前端脚印</title>
   
 
 
@@ -281,7 +281,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://weibinzhu.github.io/posts/dddf7511/">
+    <link itemprop="mainEntityOfPage" href="https://weibinzhu.github.io/posts/f1c99717/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Fatbin37">
@@ -298,7 +298,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">谈谈Javascript中的void</h1>
+          <h1 class="post-title" itemprop="name headline">webpack(一)</h1>
         
 
         <div class="post-meta">
@@ -310,8 +310,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-29T23:07:07+08:00">
-                2018-01-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-08T23:27:08+08:00">
+                2018-03-08
               </time>
             
 
@@ -328,7 +328,7 @@
 
           
           
-             <span id="/posts/dddf7511/" class="leancloud_visitors" data-flag-title="谈谈Javascript中的void">
+             <span id="/posts/f1c99717/" class="leancloud_visitors" data-flag-title="webpack(一)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -356,37 +356,102 @@
       
 
       
-        <h2 id="简单版"><a href="#简单版" class="headerlink" title="简单版"></a>简单版</h2><p>void是一个一元操作符，根据<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void" target="_blank" rel="external">MDN</a>的说法</p>
-<blockquote>
-<p>The void operator evaluates the given expression and then returns undefined.</p>
-<p>void操作符会对给定表达式求值，然后返回undefined</p>
-</blockquote>
-<p>也就是说无论表达式是什么，void都会返回一个undefined：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> <span class="string">'a'</span> <span class="comment">// undefined</span></div><div class="line"><span class="keyword">void</span> <span class="number">0</span> <span class="comment">// undefined。 同void(0)</span></div><div class="line"><span class="keyword">void</span> <span class="literal">false</span> <span class="comment">// undefined</span></div><div class="line"><span class="keyword">void</span> <span class="keyword">new</span> <span class="built_in">Object</span>() <span class="comment">// undefined</span></div><div class="line"><span class="keyword">void</span> <span class="built_in">Number</span>() <span class="comment">// // undefined</span></div><div class="line"><span class="keyword">void</span> <span class="number">1</span> + <span class="number">1</span> <span class="comment">// NaN，因为void 1返回undefined</span></div><div class="line"><span class="keyword">void</span> <span class="function"><span class="keyword">function</span> <span class="title">re</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">'sa'</span>)&#125;() <span class="comment">// 打印'sa'，返回undefined</span></div><div class="line">. . .</div></pre></td></tr></table></figure></p>
-<p>那么有什么用呢？</p>
-<h3 id="第一个用途，用来代替undefined"><a href="#第一个用途，用来代替undefined" class="headerlink" title="第一个用途，用来代替undefined"></a>第一个用途，用来代替undefined</h3><p>与很多人以为的不一样，undefined实际上并不是js的保留字，尽管ES5中undefined已经变成了全局对象的一个只读属性，但在局部作用域中仍然可以被重写。</p>
-<p>这就带来很多隐患。</p>
-<p>为了解决这个问题我们可以使用void无论怎么样都返回undefined的特性，在需要undefined的时候使用<code>void 0</code>代替。</p>
-<p>至于为什么用<code>void 0</code>而不用<code>void(0)</code>，<code>void &#39;hello,world!&#39;</code>，主要是因为<code>void 0</code>短。这意味着尽管未来undefined会变成保留字，<code>void 0</code>也仍然会有用武之地，事实上很多压缩工具就是直接用<code>void 0</code>代替代码中的undefined。</p>
-<h3 id="第二个用途，用在Javascript-URIs"><a href="#第二个用途，用在Javascript-URIs" class="headerlink" title="第二个用途，用在Javascript URIs"></a>第二个用途，用在Javascript URIs</h3><p>在浏览器处理<code>javascript: URI</code>时，他会对URL那的代码求值然后用返回值替换页面上的内容，除非返回的是undefined。而void就可以帮我们返回undefined。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void(0);"</span>&gt;</span></div><div class="line">  Click here to do nothing</div><div class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void(document.body.style.backgroundColor='green');"</span>&gt;</span></div><div class="line">  Click here for green background</div><div class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>不过现在<code>javascript:</code>已经不被推荐，虽然我并不知道为何不推荐= =</p>
-<h3 id="第三个用途，避免立即执行函数出错"><a href="#第三个用途，避免立即执行函数出错" class="headerlink" title="第三个用途，避免立即执行函数出错"></a>第三个用途，避免立即执行函数出错</h3><p>通常我们写立即执行函数的时候都会加括号，例如这样：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// do something   </span></div><div class="line">&#125;)()</div></pre></td></tr></table></figure></p>
-<p>不过有的人为了省力气往往省略这个括号，省略本来并没有问题，不过这有时候会被js解释器错误的认为这是在函数声明。</p>
-<p>通过在function前面加上void可以避免这种情况。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> <span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// do something</span></div><div class="line">&#125;()</div></pre></td></tr></table></figure>
-<p>事实上不只可以加void，也可以用<code>!</code>，<code>+</code>等一元操作符替代。</p>
-<h2 id="复杂版"><a href="#复杂版" class="headerlink" title="复杂版"></a>复杂版</h2><p>其实void在ECMAScript中的解释是这样的：</p>
-<blockquote>
+        <p>webpack是用来做什么的就不赘述了，我们直接进入主题吧。</p>
+<h3 id="webpack中的核心概念"><a href="#webpack中的核心概念" class="headerlink" title="webpack中的核心概念"></a>webpack中的核心概念</h3><p>webpack中有四个核心概念：</p>
 <ol>
-<li>Let expr be the result of evaluating<br>UnaryExpression.</li>
-<li>Call GetValue(expr).</li>
-<li>Return undefined. </li>
+<li><p>Entry</p>
+<ul>
+<li>给webpack指定入口文件，webpack会从入口文件出发，处理各种依赖，最终打包出叫bundles的东西</li>
+<li>可以指定一个文件，也可以指定多个</li>
+<li>entry的值可以是一个字符串，一个数组，一个对象</li>
+<li><p>值是一个字符串时，字符串就是那个入口文件的路径</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  entry: <span class="string">'./path/to/my/entry/file.js'</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>值是一个数组用于多入口文件的情景，数组里面的值都是字符串，并且每一个值代表一个入口文件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  entry: [<span class="string">'./user'</span>, <span class="string">'./account'</span>]</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>将一个对象作为entry的值似乎有点过于麻烦，不过这种方法更加灵活，也能构建出几个相互独立的文件。注意，下面的例子表明这几种形式是可以组合在一起的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    entry: &#123;</div><div class="line">        home: <span class="string">'./home'</span>,</div><div class="line">        user: [<span class="string">'./user'</span>, <span class="string">'./account'</span>]</div><div class="line">    &#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>Output</p>
+<ul>
+<li><p>用来告诉webpack打包后生成的bundles文件应该叫什么和应该去哪里</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"><span class="comment">// 例子里面用到了path，详情可以查阅相关文档</span></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  entry: <span class="string">'./path/to/my/entry/file.js'</span>,</div><div class="line">  output: &#123;</div><div class="line">    path: path.resolve(__dirname, <span class="string">'dist'</span>),</div><div class="line">    filename: <span class="string">'my-first-webpack.bundle.js'</span></div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>filename也可以使用变量，不必写死：<code>filename: &#39;[name].bundle.[hash].js&#39;</code></p>
+</li>
+</ul>
+</li>
+<li><p>Loaders</p>
+<ul>
+<li>loader和plugin算是webpack里面最核心的最有用的东西了</li>
+<li>webpack本身是只能处理js文件的，为了能处理其他文件（如css）我们需要借助loader</li>
+<li><p>loader有两个重要的属性：</p>
+<ul>
+<li><code>test</code>属性表明哪一些文件需要被处理，一般是一个正则表达式</li>
+<li><code>use</code>属性表明处理这些文件要用哪个loader，一般是一个字符串，也可以是一个数组。<ul>
+<li>值是一个数组的情况一般用于链式调用loader，指定类型的文件会先被数组中最后一个loader处理，处理完之后的产出交给倒数第二个loader处理，直到被第一个loader处理完。<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"></div><div class="line"><span class="keyword">const</span> config = &#123;</div><div class="line">  entry: <span class="string">'./path/to/my/entry/file.js'</span>,</div><div class="line">  output: &#123;</div><div class="line">    path: path.resolve(__dirname, <span class="string">'dist'</span>),</div><div class="line">    filename: <span class="string">'my-first-webpack.bundle.js'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="built_in">module</span>: &#123;</div><div class="line">    rules: [</div><div class="line">      &#123; <span class="attr">test</span>: <span class="regexp">/\.txt$/</span>, <span class="attr">use</span>: <span class="string">'raw-loader'</span> &#125;</div><div class="line">    ]</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = config;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>留意到上面说到的test和use属性时放在rules数组里面的一个对象里的，并且这个rules必须作为module对象的属性</p>
+</li>
+</ul>
+</li>
+<li>Plugins<ul>
+<li>用于拓展webpack的功能，能让webpack实现压缩文件、优化bundle、设置环境变量等诸多功能</li>
+<li>使用plugin前需要先require进去，然后把它添加到config下一个叫plugins的数组中。</li>
+<li>plugin的设置是通过options来实现的</li>
+<li>另外由于你可以将同一个plugin使用多次，你需要通过new操作符新建一个实例<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>); <span class="comment">//installed via npm</span></div><div class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>); <span class="comment">//to access built-in plugins</span></div><div class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"></div><div class="line"><span class="keyword">const</span> config = &#123;</div><div class="line">  entry: <span class="string">'./path/to/my/entry/file.js'</span>,</div><div class="line">  output: &#123;</div><div class="line">    path: path.resolve(__dirname, <span class="string">'dist'</span>),</div><div class="line">    filename: <span class="string">'my-first-webpack.bundle.js'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="built_in">module</span>: &#123;</div><div class="line">    rules: [</div><div class="line">      &#123; <span class="attr">test</span>: <span class="regexp">/\.txt$/</span>, <span class="attr">use</span>: <span class="string">'raw-loader'</span> &#125;</div><div class="line">    ]</div><div class="line">  &#125;,</div><div class="line">  plugins: [</div><div class="line">    <span class="keyword">new</span> webpack.optimize.UglifyJsPlugin(),</div><div class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;<span class="attr">template</span>: <span class="string">'./src/index.html'</span>&#125;)</div><div class="line">  ]</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = config;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
 </ol>
-</blockquote>
-<p>由于里面涉及了一些比较深入的js知识，我现在并不太清楚究竟做了什么。待日后更新。</p>
-<h2 id="Reference："><a href="#Reference：" class="headerlink" title="Reference："></a>Reference：</h2><p><a href="https://segmentfault.com/a/1190000002965297" target="_blank" rel="external">void关键字有个毛用</a></p>
-<p><a href="https://segmentfault.com/a/1190000005138543" target="_blank" rel="external">从用 void 0 代替 undefined 说起</a></p>
-<p><a href="https://segmentfault.com/a/1190000000474941" target="_blank" rel="external">谈谈Javascript中的void操作符</a></p>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void" target="_blank" rel="external">void operator–MDN</a></p>
+<h3 id="几个例子"><a href="#几个例子" class="headerlink" title="几个例子"></a>几个例子</h3><p>下面通过几个例子来讲解一下</p>
+<h4 id="例子一："><a href="#例子一：" class="headerlink" title="例子一："></a>例子一：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  context: path.join(__dirname, <span class="string">'./src'</span>),</div><div class="line">  entry: &#123;</div><div class="line">    home: <span class="string">'./home'</span>,</div><div class="line">    user: [<span class="string">'./user'</span>, <span class="string">'./account'</span>]</div><div class="line">  &#125;,</div><div class="line">  output: &#123;</div><div class="line">    path: path.join(__dirname, <span class="string">'./dist'</span>),</div><div class="line">    filename: <span class="string">'[name].bundle.[hash].js'</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在这例子中我们没有用到任何loader以及plugin，webpack只是通过入口文件，找到文件之间的依赖关系，并根据依赖关系最后打包出一个文件。</p>
+<p>有几点需要解释一下：</p>
+<ol>
+<li><code>context: path.join(__dirname, &#39;./src&#39;),</code>用于指明当前是在src目录下，因此后面描述类似<code>./src/home</code>这样的路径时直接写<code>./home</code>就可以了</li>
+<li>entry里面是一个对象，里面有两个属性，因此我们将会打包出两个chunk，也就是会有两个文件。其中user属性的值是一个数组，表明他有两个入口文件</li>
+<li><code>path: path.join(__dirname, &#39;./dist&#39;),</code>表明文件会输出在项目目录的dist文件夹下</li>
+<li><code>filename: &#39;[name].bundle.[hash].js&#39;</code>表明我们没有写死输出文件的名字，而是使用映射变量[name]和[hash]组合一个名字</li>
+</ol>
+<h4 id="例子二："><a href="#例子二：" class="headerlink" title="例子二："></a>例子二：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  context: __dirname + <span class="string">'/src'</span>,</div><div class="line">  entry: <span class="string">'./'</span>,</div><div class="line">  <span class="built_in">module</span>: &#123;</div><div class="line">    rules: [</div><div class="line">      &#123;</div><div class="line">        test: <span class="regexp">/\.css$/</span>,</div><div class="line">        include: [ __dirname + <span class="string">'/src'</span>],</div><div class="line">        use: [<span class="string">'style-loader'</span>, <span class="string">'css-loader'</span>]</div><div class="line">      &#125;</div><div class="line">    ]</div><div class="line">  &#125;,</div><div class="line">  output: &#123;</div><div class="line">      path: __dirname + <span class="string">'/dist'</span>,</div><div class="line">      filename: <span class="string">'[name].bundle.js'</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里面我们使用了style-loader以及css-loader来处理css文件。</p>
+<p>解释一下：</p>
+<ol>
+<li>我们之前提到使用loader时最关键的是test和use属性，并且要把拥有这两个属性的对象放在一个叫rules的数组里面，而这个rules就是module的一个属性</li>
+<li><code>include: [ __dirname + &#39;/src&#39;],</code>代表只对src目录下的css文件进行处理</li>
+</ol>
+<h4 id="例子三："><a href="#例子三：" class="headerlink" title="例子三："></a>例子三：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ExtractTextPlugin = <span class="built_in">require</span>(<span class="string">'extract-text-webpack-plugin'</span>)</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  context: __dirname + <span class="string">'/src'</span>,</div><div class="line">  entry: <span class="string">'./'</span>,</div><div class="line">  <span class="built_in">module</span>: &#123;</div><div class="line">    rules: [&#123;</div><div class="line">      test: <span class="regexp">/\.css$/</span>,</div><div class="line">      include: [</div><div class="line">        __dirname + <span class="string">'/src'</span></div><div class="line">      ],</div><div class="line">      use: ExtractTextPlugin.extract(&#123;</div><div class="line">        fallback: <span class="string">'style-loader'</span>,</div><div class="line">        use: <span class="string">'css-loader'</span></div><div class="line">      &#125;)</div><div class="line">    &#125;]</div><div class="line">  &#125;,</div><div class="line">  output: &#123;</div><div class="line">      path: __dirname + <span class="string">'/dist'</span>,</div><div class="line">      filename: <span class="string">'[name].bundle.[hash].js'</span></div><div class="line">  &#125;,</div><div class="line">  plugins: [</div><div class="line">    <span class="keyword">new</span> ExtractTextPlugin(<span class="string">'[name].css'</span>)</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个例子介绍一个叫extract-text-webpack-plugin的插件。我们注意到之前打包生成的文件只有一个js文件并且里面含有css代码，而这个插件主要用于将css从js文件中提取出来，生成单独的css文件。</p>
+<p>这里主要解释一下用法：</p>
+<ul>
+<li>使用插件前必须先require：<code>var ExtractTextPlugin = require(&#39;extract-text-webpack-plugin&#39;)</code></li>
+<li>然后再plugin数组中新建一个实例：<code>new ExtractTextPlugin(&#39;[name].css&#39;)</code></li>
+<li>新建的时候可以传递一些配置，具体可以设置什么<a href="https://doc.webpack-china.org/plugins/extract-text-webpack-plugin/" target="_blank" rel="external">看这里</a></li>
+<li>然后还要修改loaders里面有关css文件的use：<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">use: ExtractTextPlugin.extract(&#123;</div><div class="line">  fallback: <span class="string">"style-loader"</span>, <span class="comment">// 编译后用什么loader来提取css文件</span></div><div class="line">  use: <span class="string">"css-loader"</span> <span class="comment">// 指需要什么样的loader去编译文件,这里由于源文件是.css所以选择css-loader</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="例子四："><a href="#例子四：" class="headerlink" title="例子四："></a>例子四：</h4><p>这个例子是一个综合运用上面说到的知识的例子，在这个例子中，不同的命令会产生不同的结果：</p>
+<ol>
+<li>npm run build时会产生css文件并且js被压缩</li>
+<li>npm run dev时则不会产生css文件，js也不会被压缩<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</div><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</div><div class="line"><span class="keyword">var</span> ExtractTextPlugin = <span class="built_in">require</span>(<span class="string">'extract-text-webpack-plugin'</span>)</div><div class="line"></div><div class="line"><span class="comment">// 这个在 npm run dev 和 npm run build 时候是不同的</span></div><div class="line"><span class="keyword">var</span> TARGET = process.env.npm_lifecycle_event</div><div class="line"><span class="keyword">var</span> APP_PATH = path.join(__dirname, <span class="string">'/src'</span>)</div><div class="line"></div><div class="line"><span class="comment">// 根据TARGET不同设置plugin设置</span></div><div class="line"><span class="keyword">var</span> uglify = <span class="keyword">new</span> webpack.optimize.UglifyJsPlugin(&#123;<span class="attr">compress</span>: &#123;<span class="attr">warnings</span>: <span class="literal">false</span>&#125;&#125;);</div><div class="line"><span class="keyword">var</span> setPlugins = [];</div><div class="line"><span class="keyword">if</span> (TARGET === <span class="string">'build'</span>) &#123;</div><div class="line">	setPlugins = [</div><div class="line">		<span class="keyword">new</span> ExtractTextPlugin(<span class="string">'./[name].css'</span>),</div><div class="line">		uglify</div><div class="line">	]</div><div class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span> (TARGET === <span class="string">'dev'</span>)&#123;</div><div class="line">	setPlugins = [</div><div class="line">		<span class="keyword">new</span> ExtractTextPlugin(&#123;<span class="attr">disable</span>: <span class="literal">true</span>&#125;)</div><div class="line">	]</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> config = &#123;</div><div class="line">	entry:  path.join(APP_PATH, <span class="string">'/index.js'</span>),</div><div class="line">	output:&#123;</div><div class="line">		path: path.resolve(__dirname, <span class="string">'dist'</span>),</div><div class="line">        filename: <span class="string">'[name].js'</span></div><div class="line">	&#125;,</div><div class="line">	<span class="built_in">module</span>: &#123;</div><div class="line">    	rules: [</div><div class="line">      		&#123; </div><div class="line">      			test: <span class="regexp">/\.css$/</span>, </div><div class="line">      			use: ExtractTextPlugin.extract(&#123;</div><div class="line">          			fallback: <span class="string">"style-loader"</span>,</div><div class="line">          			use: <span class="string">"css-loader"</span> </div><div class="line">        		&#125;)</div><div class="line">      		&#125;</div><div class="line">    	]</div><div class="line">    &#125;,</div><div class="line">    plugins: setPlugins</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = config;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="其他一些东西"><a href="#其他一些东西" class="headerlink" title="其他一些东西"></a>其他一些东西</h3><p>除了提到的这些以外，webpack还有其他一些loader和plugin很有用：</p>
+<ol>
+<li>autoprefixer–用于自动给css属性添加前缀，实现兼容</li>
+<li>commonChunk–用于自动识别项目中有哪些文件是共用的，会只保留一份</li>
+</ol>
+<p>webpack还具有异步加载能力，通过异步加载可以提高网站的首屏加载速度。</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://webpack.js.org/concepts/" target="_blank" rel="external">webpack concept</a></p>
+<p><a href="http://www.cnblogs.com/skylar/p/webpack-module-bundler.html" target="_blank" rel="external">详解前端模块化工具-webpack</a></p>
 
       
     </div>
@@ -429,8 +494,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/6004dfff/" rel="next" title="几种方法实现自适应的有文字分割线">
-                <i class="fa fa-chevron-left"></i> 几种方法实现自适应的有文字分割线
+              <a href="/posts/7e963259/" rel="next" title="Javascript设计模式简介">
+                <i class="fa fa-chevron-left"></i> Javascript设计模式简介
               </a>
             
           </div>
@@ -438,10 +503,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/posts/8541ccde/" rel="prev" title="谈谈JS中的大数运算">
-                谈谈JS中的大数运算 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -622,7 +683,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简单版"><span class="nav-number">1.</span> <span class="nav-text">简单版</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个用途，用来代替undefined"><span class="nav-number">1.1.</span> <span class="nav-text">第一个用途，用来代替undefined</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二个用途，用在Javascript-URIs"><span class="nav-number">1.2.</span> <span class="nav-text">第二个用途，用在Javascript URIs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三个用途，避免立即执行函数出错"><span class="nav-number">1.3.</span> <span class="nav-text">第三个用途，避免立即执行函数出错</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复杂版"><span class="nav-number">2.</span> <span class="nav-text">复杂版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference："><span class="nav-number">3.</span> <span class="nav-text">Reference：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#webpack中的核心概念"><span class="nav-number">1.</span> <span class="nav-text">webpack中的核心概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#几个例子"><span class="nav-number">2.</span> <span class="nav-text">几个例子</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#例子一："><span class="nav-number">2.1.</span> <span class="nav-text">例子一：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例子二："><span class="nav-number">2.2.</span> <span class="nav-text">例子二：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例子三："><span class="nav-number">2.3.</span> <span class="nav-text">例子三：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例子四："><span class="nav-number">2.4.</span> <span class="nav-text">例子四：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他一些东西"><span class="nav-number">3.</span> <span class="nav-text">其他一些东西</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
